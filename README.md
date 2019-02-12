@@ -1,4 +1,4 @@
-# wda-test
+# @flasco/cheat-core
 a iOS game cheat core project.
 
 ## pre-course
