@@ -3,6 +3,7 @@ const notifier = require('node-notifier');
 
 const { base642Mat } = require('../../utils');
 const { TIP_COLOR, TIP_TEXT, LEVEL_INFO_MAP } = require('../../constants');
+const flagPool = require('../flag-pool');
 
 // 这里提供一些最基础的能力
 class BaseApp {
@@ -175,6 +176,15 @@ class BaseApp {
     } else {
       console.log(str);
     }
+  }
+
+  /**
+   * 获取pic Mat
+   * @param {string} filePath 图片文件路径
+   * @return {cv::Mat}
+   */
+  getPicture(filePath) {
+    return flagPool.getFlag(filePath);
   }
 }
 
