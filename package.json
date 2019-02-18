@@ -1,6 +1,6 @@
 {
   "name": "@flasco/cheat-core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "src/index.js",
   "author": "flasco",
   "license": "BSD 3-Clause",

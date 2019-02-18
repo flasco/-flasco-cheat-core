@@ -42,7 +42,7 @@ class BaseApp {
     try {
       await this.session.tap(x, y);
     } catch (error) {
-      this.log('啊哦，断掉了', LEVEL_INFO_MAP.warn);
+      throw new Error ('啊哦，断掉了');
     }
   }
   /**
@@ -53,7 +53,7 @@ class BaseApp {
     try {
       await this.session.chainOperation(actions);
     } catch (error) {
-      this.log('啊哦，断掉了', LEVEL_INFO_MAP.warn);
+      throw new Error ('啊哦，断掉了');
     }
   }
 
@@ -70,7 +70,7 @@ class BaseApp {
     try {
       await this.session.swipe(x1, y1, x2, y2, duration);
     } catch (error) {
-      this.log('啊哦，断掉了', LEVEL_INFO_MAP.warn);
+      throw new Error ('啊哦，断掉了');
     }
   }
 
@@ -87,7 +87,7 @@ class BaseApp {
     try {
       await this.session.tapHold(x, y, delay);
     } catch (error) {
-      this.log('啊哦，断掉了', LEVEL_INFO_MAP.warn);
+      throw new Error ('啊哦，断掉了');
     }
   }
 
@@ -107,7 +107,7 @@ class BaseApp {
       }
       return base64;
     } catch (error) {
-      this.log('啊哦，断掉了', LEVEL_INFO_MAP.warn);
+      throw new Error ('啊哦，断掉了');
     }
   }
   /**
