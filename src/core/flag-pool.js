@@ -5,11 +5,6 @@ class FlagPool {
     this.appMap = {};
   }
 
-  /**
-   * @description 获取实例，单例模式
-   * @param {Function} Entity 带uniqueId的类
-   * @returns {Object}
-   */
   getFlag(flagPath) {
     if (this.appMap[flagPath] == null) {
       this.appMap[flagPath] = cv.imread(flagPath);
