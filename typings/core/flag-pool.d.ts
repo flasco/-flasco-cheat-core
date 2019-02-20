@@ -10,5 +10,5 @@ declare module '@flasco/cheat-core/src/core/flag-pool' {
     getFlag(flagPath: string): cv.Mat;
   }
 
-  export default FlagPool;
+  export = FlagPool;
 }

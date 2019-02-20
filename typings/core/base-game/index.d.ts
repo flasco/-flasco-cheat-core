@@ -1,3 +1,10 @@
+/// <reference types="node" />
+
+/// <reference path="../../constants/index.d.ts" />
+/// <reference path="../base/index.d.ts" />
+/// <reference path="../../utils/index.d.ts" />
+/// <reference path="../../utils/chainOperation.d.ts" />
+
 declare module '@flasco/cheat-core/src/core/base-game' {
   import * as cv from 'opencv4nodejs';
   import Base from '@flasco/cheat-core/src/core/base';
@@ -39,5 +46,5 @@ declare module '@flasco/cheat-core/src/core/base-game' {
     judgeSimple(img: cv.Mat, containImg: cv.Mat): Promise<number>;
   }
 
-  export default GameCommon;
+  export = GameCommon;
 }

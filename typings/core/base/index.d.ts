@@ -1,3 +1,10 @@
+/// <reference types="node" />
+
+/// <reference path="../../constants/index.d.ts" />
+/// <reference path="../flag-pool.d.ts" />
+/// <reference path="../../utils/index.d.ts" />
+/// <reference path="../../utils/chainOperation.d.ts" />
+
 declare module '@flasco/cheat-core/src/core/base' {
   import * as cv from 'opencv4nodejs';
   import { base642Mat } from '@flasco/cheat-core/src/utils';
@@ -100,5 +107,5 @@ declare module '@flasco/cheat-core/src/core/base' {
     getPicture(filePath: string): cv.Mat;
   }
 
-  export default BaseApp;
+  export = BaseApp;
 }
