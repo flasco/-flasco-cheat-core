@@ -1,5 +1,5 @@
-# @flasco/cheat-core
-a iOS game cheat core project.
+# wda-test
+just a wda test project.
 
 ## pre-course
 你需要安装下面的一些工具(使用[Homebrew](https://brew.sh/))
@@ -7,15 +7,18 @@ a iOS game cheat core project.
 # 此处默认homebrew已经安装
 brew update # 拉取最新仓库
 brew install carthage
-brew install libimobiledevice # 代理相关，下面有用到
-brew install opencv
+brew install mobiledevice # 代理相关，下面有用到
+brew install ./third-party/opencv.rb # 记得在项目下面跑，安装指定版本opencv
 ```
 
-设置环境变量 `export OPENCV4NODEJS_DISABLE_AUTOBUILD=true`，跳过重复安装opencv
+```bash
+echo 'export OPENCV4NODEJS_DISABLE_AUTOBUILD=true' >> ~/.bash_profile # 设置环境变量, ，跳过重复安装opencv
 
-export no_proxy="localhost,127.0.0.1,localaddress"
-export http_proxy='http://localhost:1081'
-export https_proxy='http://localhost:1081'
+```
+
+export no_proxy="localhost,127.0.0.1,localaddress"  
+export http_proxy='http://localhost:1081'  
+export https_proxy='http://localhost:1081'  
 
 ## course
 1. WebDriverAgent相关
@@ -33,7 +36,7 @@ yarn wda # 前提是script/test.sh的信息已经配置完毕
 
 2. 启用usb代理
 ```bash
-# iproxy 8100 8100
+# mobiledevice tunnel 8100 8100
 ```
 
 3. 运行本项目
