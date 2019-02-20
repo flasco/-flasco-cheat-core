@@ -3,8 +3,15 @@ declare module '@flasco/cheat-core/src/core/base-game' {
   import Base from '@flasco/cheat-core/src/core/base';
   import { delay } from '@flasco/cheat-core/src/utils';
 
+  interface BaseProps {
+    width: number
+    height: number
+    client: object
+    session: object
+  }
+
   // 这里存放一些game的基础function
-  export default class GameCommon extends Base {
+  class GameCommon extends Base<BaseProps> {
     /**
      * 检测是否有需要点击的确定按钮，是则点击并返回true，否则返回false
      * @param flag 要点击的图片
@@ -31,4 +38,6 @@ declare module '@flasco/cheat-core/src/core/base-game' {
      */
     judgeSimple(img: cv.Mat, containImg: cv.Mat): Promise<number>;
   }
+
+  export default GameCommon;
 }

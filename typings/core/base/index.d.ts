@@ -9,13 +9,6 @@ declare module '@flasco/cheat-core/src/core/base' {
   } from '@flasco/cheat-core/src/constants';
   import flagPool from '@flasco/cheat-core/src/core/flag-pool';
 
-  interface BaseProps {
-    width: number;
-    height: number;
-    client: object;
-    session: object;
-  }
-
   interface MatchRes {
     simple: number;
     point: {
@@ -25,8 +18,8 @@ declare module '@flasco/cheat-core/src/core/base' {
   }
 
   // 这里提供一些最基础的能力
-  export default class BaseApp {
-    constructor(props: BaseProps);
+  class BaseApp<P> {
+    constructor(props: Readonly<P>);
 
     /**
      * 点击事件
@@ -106,4 +99,6 @@ declare module '@flasco/cheat-core/src/core/base' {
      */
     getPicture(filePath: string): cv.Mat;
   }
+
+  export default BaseApp;
 }
