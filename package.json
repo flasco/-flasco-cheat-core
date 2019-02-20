@@ -5,6 +5,7 @@
   "author": "flasco",
   "license": "BSD 3-Clause",
   "private": true,
+  "typings": "typings/index.d.ts",
   "scripts": {
     "start": "node ./index.js",
     "wda": "sh script/test.sh",
