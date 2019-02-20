@@ -7,7 +7,7 @@
 
 declare module '@flasco/cheat-core/src/core/base-game' {
   import * as cv from 'opencv4nodejs';
-  import Base from '@flasco/cheat-core/src/core/base';
+  import Base = require('@flasco/cheat-core/src/core/base');
   import { delay } from '@flasco/cheat-core/src/utils';
 
   interface BaseProps {
