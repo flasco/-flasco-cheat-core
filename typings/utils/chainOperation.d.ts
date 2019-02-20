@@ -1,5 +1,5 @@
 declare module '@flasco/cheat-core/src/utils/chainOperation' {
-  declare namespace actionInf {
+  namespace actionInf {
     interface press {
       action: 'press';
       options: {
@@ -34,7 +34,7 @@ declare module '@flasco/cheat-core/src/utils/chainOperation' {
    * @param y y坐标
    * @param druation 持续时间
    */
-  export declare function longPress(
+  export function longPress(
     x: number,
     y: number,
     druation: number
@@ -44,12 +44,12 @@ declare module '@flasco/cheat-core/src/utils/chainOperation' {
    * 等待
    * @param ms 毫秒
    */
-  export declare function wait(ms: number): actionInf.wait;
+  export function wait(ms: number): actionInf.wait;
 
   /**
    * 点击
    * @param x x坐标
    * @param y y坐标
    */
-  export declare function tap(x: number, y: number): actionInf.tap;
+  export function tap(x: number, y: number): actionInf.tap;
 }

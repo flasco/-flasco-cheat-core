@@ -8,15 +8,9 @@
 /// <reference path="./core/base-game/index.d.ts" />
 
 declare module '@flasco/cheat-core' {
-  import { LEVEL_INFO_MAP } from '@flasco/cheat-core/constants';
-  import { delay, base642Mat } from '@flasco/cheat-core/utils';
-  import { tap, longPress, wait } from '@flasco/cheat-core/utils/chainOperation';
-
-  declare const chainOperation = {
-    tap,
-    longPress,
-    wait
-  };
+  import { LEVEL_INFO_MAP } from '@flasco/cheat-core/src/constants';
+  import { delay, base642Mat } from '@flasco/cheat-core/src/utils';
+  import * as chainOperation from '@flasco/cheat-core/src/utils/chainOperation';
 
   export { LEVEL_INFO_MAP, delay, base642Mat, chainOperation };
 }

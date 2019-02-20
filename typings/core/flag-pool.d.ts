@@ -1,7 +1,7 @@
 declare module '@flasco/cheat-core/src/core/flag-pool' {
   import * as cv from 'opencv4nodejs';
 
-  declare class FlagPool {
+  export default class FlagPool {
     private appMap: Object;
     /**
      * 获取处理成能被 opencv 使用的图片
@@ -9,6 +9,4 @@ declare module '@flasco/cheat-core/src/core/flag-pool' {
      */
     getFlag(flagPath: string): cv.Mat;
   }
-
-  export default FlagPool;
 }
