@@ -1,29 +1,24 @@
 declare module '@flasco/cheat-core/src/constants' {
   import { Color } from 'colors-cli';
 
-  const info: unique symbol;
-  const success: unique symbol;
-  const warn: unique symbol;
-  const error: unique symbol;
-
-  export interface LEVEL_INFO_MAP {
-    info: typeof info;
-    success: typeof success;
-    warn: typeof warn;
-    error: typeof error;
+  export const LEVEL_INFO_MAP = {
+    info: Symbol('info'),
+    success: Symbol('success'),
+    warn: Symbol('warn'),
+    error: Symbol('error'),
   }
 
-  export interface TIP_COLOR {
-    [info]: Color['blue'];
-    [success]: Color['green'];
-    [warn]: Color['yellow_bt'];
-    [error]: Color['red_bt'];
+  export const TIP_COLOR = {
+    [LEVEL_INFO_MAP.info]: Color['blue'],
+    [LEVEL_INFO_MAP.success]: Color['green'],
+    [LEVEL_INFO_MAP.warn]: Color['yellow_bt'],
+    [LEVEL_INFO_MAP.error]: Color['red_bt'],
   }
 
   export interface TIP_TEXT {
-    [info]: 'info';
-    [success]: 'success';
-    [warn]: 'warn';
-    [error]: 'error';
+    [LEVEL_INFO_MAP.info]: 'info';
+    [LEVEL_INFO_MAP.success]: 'success';
+    [LEVEL_INFO_MAP.warn]: 'warn';
+    [LEVEL_INFO_MAP.error]: 'error';
   }
 }

@@ -32,7 +32,7 @@ class BaseApp {
     try {
       await this.session.tap(x, y);
     } catch (error) {
-      throw new Error ('啊哦，断掉了');
+      throw new Error('啊哦，断掉了');
     }
   }
 
@@ -40,7 +40,7 @@ class BaseApp {
     try {
       await this.session.chainOperation(actions);
     } catch (error) {
-      throw new Error ('啊哦，断掉了');
+      throw new Error('啊哦，断掉了');
     }
   }
 
@@ -48,7 +48,7 @@ class BaseApp {
     try {
       await this.session.swipe(x1, y1, x2, y2, duration);
     } catch (error) {
-      throw new Error ('啊哦，断掉了');
+      throw new Error('啊哦，断掉了');
     }
   }
 
@@ -59,7 +59,7 @@ class BaseApp {
     try {
       await this.session.tapHold(x, y, delay);
     } catch (error) {
-      throw new Error ('啊哦，断掉了');
+      throw new Error('啊哦，断掉了');
     }
   }
 
@@ -73,7 +73,7 @@ class BaseApp {
       }
       return base64;
     } catch (error) {
-      throw new Error ('啊哦，断掉了');
+      throw new Error('啊哦，断掉了');
     }
   }
 
@@ -82,11 +82,10 @@ class BaseApp {
       throw new Error('图像不能为空！');
     }
     const matched = img1.matchTemplate(img2, cv.TM_CCOEFF_NORMED);
-    const minMax = matched.minMaxLoc();
     const {
       maxLoc: { x, y },
       maxVal
-    } = minMax;
+    } = matched.minMaxLoc();
 
     needLog && console.log(`maxSimple - ${maxVal.toFixed(2)}`);
     // 之所以返回除以3，是因为屏幕缩放倍数的原因
