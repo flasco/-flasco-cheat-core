@@ -1,6 +1,6 @@
 {
   "name": "@flasco/cheat-core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "src/index.js",
   "author": "flasco",
   "license": "BSD 3-Clause",
@@ -23,11 +23,11 @@
     ]
   },
   "dependencies": {
-    "flasco_wda-driver": "^1.2.0",
     "node-notifier": "^5.3.0",
-    "opencv4nodejs": "^4.9.0"
+    "opencv4nodejs": "^4.14.1"
   },
   "devDependencies": {
+    "@flasco/wda-driver": "git+https://github.com/flasco/WDR.git",
     "colors-cli": "^1.0.20",
     "eslint": "^5.6.0",
     "husky": "^1.0.0-rc.14",
@@ -38,5 +38,12 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$",
+      "<rootDir>/node_modules/"
+    ]
   }
 }

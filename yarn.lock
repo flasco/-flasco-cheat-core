@@ -18,6 +18,12 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
+"@flasco/wda-driver@git+https://github.com/flasco/WDR.git":
+  version "0.0.5"
+  resolved "git+https://github.com/flasco/WDR.git#f694f29762af090620436b49d5326d711d11352e"
+  dependencies:
+    axios "^0.18.0"
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.npmjs.org/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
@@ -275,6 +281,14 @@ aws4@^1.8.0:
   resolved "http://registry.npm.taobao.org/aws4/download/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
   integrity sha1-8OAD2cqef1nHpQiUXXsu+aBKVC8=
 
+axios@^0.18.0:
+  version "0.18.0"
+  resolved "http://registry.npm.taobao.org/axios/download/axios-0.18.0.tgz#32d53e4851efdc0a11993b6cd000789d70c05102"
+  integrity sha1-MtU+SFHv3AoRmTts0AB4nXDAUQI=
+  dependencies:
+    follow-redirects "^1.3.0"
+    is-buffer "^1.1.5"
+
 babel-code-frame@^6.26.0:
   version "6.26.0"
   resolved "https://registry.npmjs.org/babel-code-frame/-/babel-code-frame-6.26.0.tgz#63fd43f7dc1e3bb7ce35947db8fe369a3f58c74b"
@@ -460,11 +474,6 @@ bcrypt-pbkdf@^1.0.0:
   integrity sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
   dependencies:
     tweetnacl "^0.14.3"
-
-bluebird@^3.5.0:
-  version "3.5.2"
-  resolved "http://registry.npm.taobao.org/bluebird/download/bluebird-3.5.2.tgz#1be0908e054a751754549c270489c1505d4ab15a"
-  integrity sha1-G+CQjgVKdRdUVJwnBInBUF1KsVo=
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -832,6 +841,13 @@ debug@^3.1.0:
   version "3.2.5"
   resolved "https://registry.npmjs.org/debug/-/debug-3.2.5.tgz#c2418fbfd7a29f4d4f70ff4cea604d4b64c46407"
   integrity sha1-wkGPv9ein01PcP9M6mBNS2TEZAc=
+  dependencies:
+    ms "^2.1.1"
+
+debug@^3.2.6:
+  version "3.2.6"
+  resolved "http://registry.npm.taobao.org/debug/download/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
+  integrity sha1-6D0X3hbYp++3cX7b5fsQE17uYps=
   dependencies:
     ms "^2.1.1"
 
@@ -1369,15 +1385,6 @@ find-up@^3.0.0:
   dependencies:
     locate-path "^3.0.0"
 
-flasco_wda-driver@^1.2.0:
-  version "1.2.0"
-  resolved "http://registry.npm.taobao.org/flasco_wda-driver/download/flasco_wda-driver-1.2.0.tgz#e5699f0b4cd45b5d2f51213fd5e5bf092ebd4bc8"
-  integrity sha1-5WmfC0zUW10vUSE/1eW/CS69S8g=
-  dependencies:
-    request "^2.83.0"
-    request-promise "^4.2.2"
-    url-join "^2.0.2"
-
 flat-cache@^1.2.1:
   version "1.3.0"
   resolved "https://registry.npmjs.org/flat-cache/-/flat-cache-1.3.0.tgz#d3030b32b38154f4e3b7e9c709f490f7ef97c481"
@@ -1387,6 +1394,13 @@ flat-cache@^1.2.1:
     del "^2.0.2"
     graceful-fs "^4.1.2"
     write "^0.2.1"
+
+follow-redirects@^1.3.0:
+  version "1.7.0"
+  resolved "http://registry.npm.taobao.org/follow-redirects/download/follow-redirects-1.7.0.tgz#489ebc198dc0e7f64167bd23b03c4c19b5784c76"
+  integrity sha1-SJ68GY3A5/ZBZ70jsDxMGbV4THY=
+  dependencies:
+    debug "^3.2.6"
 
 for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"
@@ -2775,12 +2789,12 @@ lru-cache@^4.0.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
-macro-inferno@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.npmjs.org/macro-inferno/-/macro-inferno-0.2.2.tgz#57dd960f9fa3e117ef9f46dbf0629d08d1d04c5f"
-  integrity sha512-ouyDKrSzOdZVm7ViR/W9+qRPtrZ2Ml3QD4NNekXrMbAjN32xD1C/lRYl3t0Bf/sG5elNnBEzVfLr93HNzheSQw==
+macro-inferno@^0.2.3:
+  version "0.2.3"
+  resolved "http://registry.npm.taobao.org/macro-inferno/download/macro-inferno-0.2.3.tgz#206e9698d006d9a4421cdfca240ef93c2cafc174"
+  integrity sha1-IG6WmNAG2aRCHN/KJA75PCyvwXQ=
   dependencies:
-    nan "^2.7.0"
+    nan "^2.12.1"
 
 makeerror@1.0.x:
   version "1.0.11"
@@ -2947,15 +2961,15 @@ mute-stream@0.0.7:
   resolved "https://registry.npmjs.org/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
   integrity sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
 
-nan@^2.11.0, nan@^2.9.2:
+nan@^2.12.1:
+  version "2.12.1"
+  resolved "http://registry.npm.taobao.org/nan/download/nan-2.12.1.tgz#7b1aa193e9aa86057e3c7bbd0ac448e770925552"
+  integrity sha1-exqhk+mqhgV+PHu9CsRI53CSVVI=
+
+nan@^2.9.2:
   version "2.11.0"
   resolved "https://registry.npmjs.org/nan/-/nan-2.11.0.tgz#574e360e4d954ab16966ec102c0c049fd961a099"
   integrity sha1-V042Dk2VSrFpZuwQLAwEn9lhoJk=
-
-nan@^2.7.0:
-  version "2.11.1"
-  resolved "http://registry.npm.taobao.org/nan/download/nan-2.11.1.tgz#90e22bccb8ca57ea4cd37cc83d3819b52eea6766"
-  integrity sha1-kOIrzLjKV+pM03zIPTgZtS7qZ2Y=
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -2974,12 +2988,12 @@ nanomatch@^1.2.9:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
-native-node-utils@0.1.4:
-  version "0.1.4"
-  resolved "https://registry.npmjs.org/native-node-utils/-/native-node-utils-0.1.4.tgz#7223c70786a952868ea5d125b4810053c165dcec"
-  integrity sha512-RLc/NI9UdLhxHLMtUsmSpr7+nU1LWKSQdQb6t8DpmUi/Rled2/gemPg05lJ38TSDfOHdUI2XCv7mTCQvw/tsPQ==
+native-node-utils@^0.1.5:
+  version "0.1.5"
+  resolved "http://registry.npm.taobao.org/native-node-utils/download/native-node-utils-0.1.5.tgz#7e7f7b785414fb5df29d20a56559a51ac9127114"
+  integrity sha1-fn97eFQU+13ynSClZVmlGskScRQ=
   dependencies:
-    nan "^2.11.0"
+    nan "^2.12.1"
 
 natural-compare@^1.4.0:
   version "1.4.0"
@@ -3195,22 +3209,22 @@ onetime@^2.0.0:
   dependencies:
     mimic-fn "^1.0.0"
 
-opencv-build@0.0.15:
-  version "0.0.15"
-  resolved "http://registry.npm.taobao.org/opencv-build/download/opencv-build-0.0.15.tgz#14c15ed2edada9f1ab3283ec4dda11625e356fc4"
-  integrity sha1-FMFe0u2tqfGrMoPsTdoRYl41b8Q=
+opencv-build@^0.0.17:
+  version "0.0.17"
+  resolved "http://registry.npm.taobao.org/opencv-build/download/opencv-build-0.0.17.tgz#cd19cab88e1bd7f76b163742dca9e2b2a7ad6ea5"
+  integrity sha1-zRnKuI4b1/drFjdC3KnisqetbqU=
   dependencies:
     npmlog "^4.1.2"
 
-opencv4nodejs@^4.9.0:
-  version "4.9.0"
-  resolved "https://registry.npmjs.org/opencv4nodejs/-/opencv4nodejs-4.9.0.tgz#29c7eddcb9d09550e876650539973dff1ec94460"
-  integrity sha512-ZQUCfz1zrVRT3v6+Jiqrs7W7lPxhrbKEbaGmqlWLbpxlmyxrvVvwjsGWrjCbLPQ1tFV0w6b+k5gJHLV/2N2APw==
+opencv4nodejs@^4.14.1:
+  version "4.14.1"
+  resolved "http://registry.npm.taobao.org/opencv4nodejs/download/opencv4nodejs-4.14.1.tgz#94a62f03d000d4fb05eb95e63c79f89e3f5fdaca"
+  integrity sha1-lKYvA9AA1PsF65XmPHn4nj9f2so=
   dependencies:
-    macro-inferno "^0.2.2"
-    nan "^2.11.0"
-    native-node-utils "0.1.4"
-    opencv-build "0.0.15"
+    macro-inferno "^0.2.3"
+    nan "^2.12.1"
+    native-node-utils "^0.1.5"
+    opencv-build "^0.0.17"
   optionalDependencies:
     "@types/node" ">6"
 
@@ -3642,17 +3656,7 @@ request-promise-native@^1.0.5:
     stealthy-require "^1.1.0"
     tough-cookie ">=2.3.3"
 
-request-promise@^4.2.2:
-  version "4.2.2"
-  resolved "http://registry.npm.taobao.org/request-promise/download/request-promise-4.2.2.tgz#d1ea46d654a6ee4f8ee6a4fea1018c22911904b4"
-  integrity sha1-0epG1lSm7k+O5qT+oQGMIpEZBLQ=
-  dependencies:
-    bluebird "^3.5.0"
-    request-promise-core "1.1.1"
-    stealthy-require "^1.1.0"
-    tough-cookie ">=2.3.3"
-
-request@^2.83.0, request@^2.87.0:
+request@^2.87.0:
   version "2.88.0"
   resolved "http://registry.npm.taobao.org/request/download/request-2.88.0.tgz#9c2fca4f7d35b592efe57c7f0a55e81052124fef"
   integrity sha1-nC/KT301tZLv5Xx/ClXoEFIST+8=
@@ -4330,11 +4334,6 @@ urix@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
-
-url-join@^2.0.2:
-  version "2.0.5"
-  resolved "http://registry.npm.taobao.org/url-join/download/url-join-2.0.5.tgz#5af22f18c052a000a48d7b82c5e9c2e2feeda728"
-  integrity sha1-WvIvGMBSoACkjXuCxenC4v7tpyg=
 
 use@^3.1.0:
   version "3.1.1"

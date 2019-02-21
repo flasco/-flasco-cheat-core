@@ -1,10 +1,7 @@
+const wda = require('@flasco/wda-driver');
 
-const wda = require('flasco_wda-driver');
-
-async function test() {
+test('screenshot', async () => {
   const c = new wda.Client('http://localhost:8100');
   const timex = new Date().getTime();
   await c.screenshot(`${timex}.png`);
-}
-
-test();
+}, 10000);
