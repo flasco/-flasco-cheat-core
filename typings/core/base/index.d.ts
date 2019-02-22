@@ -7,6 +7,8 @@
 
 declare module '@flasco/cheat-core/src/core/base' {
   import * as cv from 'opencv4nodejs';
+  import { Client } from '@flasco/wda-driver';
+  import Session = require('@flasco/wda-driver/src/core/session');
   import { base642Mat } from '@flasco/cheat-core/src/utils';
   import { actionInf } from '@flasco/cheat-core/src/utils/chainOperation';
   import {
@@ -27,6 +29,10 @@ declare module '@flasco/cheat-core/src/core/base' {
   // 这里提供一些最基础的能力
   class BaseApp<P> {
     constructor(props: Readonly<P>);
+    client: Client
+    Session: Session
+    width: number
+    height: number
 
     /**
      * 点击事件
