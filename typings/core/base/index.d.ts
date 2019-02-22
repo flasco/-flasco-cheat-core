@@ -1,6 +1,5 @@
 /// <reference types="node" />
 
-/// <reference path="../../constants/index.d.ts" />
 /// <reference path="../flag-pool.d.ts" />
 /// <reference path="../../utils/index.d.ts" />
 /// <reference path="../../utils/chainOperation.d.ts" />
@@ -11,11 +10,6 @@ declare module '@flasco/cheat-core/src/core/base' {
   import Session = require('@flasco/wda-driver/src/core/session');
   import { base642Mat } from '@flasco/cheat-core/src/utils';
   import { actionInf } from '@flasco/cheat-core/src/utils/chainOperation';
-  import {
-    TIP_COLOR,
-    TIP_TEXT,
-    LEVEL_INFO_MAP
-  } from '@flasco/cheat-core/src/constants';
   import flagPool from '@flasco/cheat-core/src/core/flag-pool';
 
   interface MatchRes {
@@ -30,7 +24,7 @@ declare module '@flasco/cheat-core/src/core/base' {
   class BaseApp<P> {
     constructor(props: Readonly<P>);
     client: Client
-    Session: Session
+    session: Session
     width: number
     height: number
 
@@ -104,7 +98,7 @@ declare module '@flasco/cheat-core/src/core/base' {
      * @param str 提示文案
      * @param level 从constants里取
      */
-    log(str: string, level: LEVEL_INFO_MAP): void;
+    log(str: string, level: symbol): void;
 
     /**
      * 获取pic Mat

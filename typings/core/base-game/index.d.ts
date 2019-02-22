@@ -1,6 +1,5 @@
 /// <reference types="node" />
 
-/// <reference path="../../constants/index.d.ts" />
 /// <reference path="../base/index.d.ts" />
 /// <reference path="../../utils/index.d.ts" />
 /// <reference path="../../utils/chainOperation.d.ts" />
