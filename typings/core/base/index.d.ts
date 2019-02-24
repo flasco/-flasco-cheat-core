@@ -6,8 +6,7 @@
 
 declare module '@flasco/cheat-core/src/core/base' {
   import * as cv from 'opencv4nodejs';
-  import { Client } from '@flasco/wda-driver';
-  import Session = require('@flasco/wda-driver/src/core/session');
+  import { Client, Session } from '@flasco/wda-driver';
   import { base642Mat } from '@flasco/cheat-core/src/utils';
   import { actionInf } from '@flasco/cheat-core/src/utils/chainOperation';
   import flagPool from '@flasco/cheat-core/src/core/flag-pool';

@@ -19,8 +19,8 @@
     js-tokens "^4.0.0"
 
 "@flasco/wda-driver@git+https://github.com/flasco/WDR.git":
-  version "0.0.5"
-  resolved "git+https://github.com/flasco/WDR.git#f694f29762af090620436b49d5326d711d11352e"
+  version "0.1.0"
+  resolved "git+https://github.com/flasco/WDR.git#d3db9ec767143c2492725024b4bae9b01542157d"
   dependencies:
     axios "^0.18.0"
 
