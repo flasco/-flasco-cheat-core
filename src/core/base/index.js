@@ -1,5 +1,4 @@
 const cv = require('opencv4nodejs');
-const notifier = require('node-notifier');
 
 const { base642Mat } = require('../../utils');
 const { TIP_COLOR, TIP_TEXT, LEVEL_INFO_MAP } = require('../../constants');
@@ -98,13 +97,7 @@ class BaseApp {
   log(str, level = LEVEL_INFO_MAP.info) {
     if (TIP_COLOR[level] != null) {
       const tip = TIP_COLOR[level](TIP_TEXT[level]);
-      if (level === LEVEL_INFO_MAP.warn || level === LEVEL_INFO_MAP.error) {
-        notifier.notify({
-          title: '警告',
-          message: str,
-          sound: 'Funk' // Only Notification Center or Windows Toasters
-        });
-      }
+
       console.log(`${tip} ${str}`);
     } else {
       console.log(str);
