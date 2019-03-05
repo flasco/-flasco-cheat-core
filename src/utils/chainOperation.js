@@ -1,4 +1,6 @@
-function longPress(x, y, druation) {
+function longPress(x, y, druation, rand = 0) {
+  x = getRandom(x, rand);
+  y = getRandom(y, rand);
   return [
     {
       action: 'press',
@@ -24,7 +26,9 @@ function wait(ms) {
   };
 }
 
-function tap(x, y) {
+function tap(x, y, rand = 0) {
+  x = getRandom(x, rand);
+  y = getRandom(y, rand);
   return {
     action: 'tap',
     options: {
@@ -32,6 +36,11 @@ function tap(x, y) {
       y
     }
   };
+}
+
+function getRandom(val, rand) {
+  const randomX = Math.random() * rand >>> 0;
+  return val + randomX;
 }
 
 exports.tap = tap;

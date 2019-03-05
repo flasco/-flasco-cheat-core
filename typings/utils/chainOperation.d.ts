@@ -33,11 +33,13 @@ declare module '@flasco/cheat-core/src/utils/chainOperation' {
      * @param x x坐标
      * @param y y坐标
      * @param druation 持续时间
+     * @param rand 随机值
      */
     export function longPress(
       x: number,
       y: number,
-      druation: number
+      druation: number,
+      rand: number
     ): [actionInf.press, actionInf.wait, actionInf.release];
 
     /**
@@ -50,8 +52,9 @@ declare module '@flasco/cheat-core/src/utils/chainOperation' {
      * 点击
      * @param x x坐标
      * @param y y坐标
+     * @param rand 随机值
      */
-    export function tap(x: number, y: number): actionInf.tap;
+    export function tap(x: number, y: number, rand: number): actionInf.tap;
   }
 
   export = chainOperation;
