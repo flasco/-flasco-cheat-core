@@ -67,7 +67,13 @@ declare module '@flasco/cheat-core/src/utils/chainOperation' {
       [x2, y2]: Array<number>,
       druation: number,
       rand?: number
-    ): actionInf.wait;
+    ): [
+      actionInf.press,
+      actionInf.wait,
+      actionInf.moveTo,
+      actionInf.wait,
+      actionInf.release
+    ];
 
     /**
      * 点击
