@@ -52,7 +52,7 @@ function drag([x1, y1], [x2, y2], druation, rand = 0) {
     },
     {
       action: 'wait',
-      options: { ms: 100 }
+      options: { ms: 190 }
     },
     {
       action: 'release'
