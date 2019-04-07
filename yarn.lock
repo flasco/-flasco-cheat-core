@@ -20,7 +20,7 @@
 
 "@flasco/wda-driver@git+https://github.com/flasco/WDR.git":
   version "0.1.0"
-  resolved "git+https://github.com/flasco/WDR.git#d3db9ec767143c2492725024b4bae9b01542157d"
+  resolved "git+https://github.com/flasco/WDR.git#d9f62c147abb5f9bf04002d9952d84b5d8db2c55"
   dependencies:
     axios "^0.18.0"
 
