@@ -96,8 +96,9 @@ declare module '@flasco/cheat-core/src/core/base' {
      * 输出美化过的log
      * @param str 提示文案
      * @param level 从constants里取
+     * @param needTime 是否需要展示时间戳
      */
-    log(str: string, level: symbol): void;
+    log(str: string, level: symbol, needTime: boolean): void;
 
     /**
      * 获取pic Mat
