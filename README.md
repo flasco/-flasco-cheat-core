@@ -1,5 +1,7 @@
-# wda-test
-just a wda test project.
+# cheat-core
+A cheat core dependency, effective only on iOS platform.
+
+[![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 
 ## pre-course
 你需要安装下面的一些工具(使用[Homebrew](https://brew.sh/))
@@ -47,3 +49,6 @@ yarn start
 ## 注意  
 如果wda出现频繁中断，原因是因为你的手机内存不够，后台进程被kill了。  
 解决方案：双击home键清空其他无关窗口再次运行即可（6以下的手机需要注意这个问题，毕竟内存小）
+
+## License
+[Anti-996 License](https://github.com/996icu/996.ICU/blob/master/LICENSE)
