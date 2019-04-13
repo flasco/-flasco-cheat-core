@@ -1,4 +1,5 @@
 const cv = require('opencv4nodejs');
+const formatDate = require('date-fns/format');
 
 const { base642Mat } = require('../../utils');
 const { TIP_COLOR, TIP_TEXT, LEVEL_INFO_MAP } = require('../../constants');
@@ -94,14 +95,14 @@ class BaseApp {
     };
   }
 
-  log(str, level = LEVEL_INFO_MAP.info) {
+  log(str, level = LEVEL_INFO_MAP.info, needTime = true) {
+    let content = str;
     if (TIP_COLOR[level] != null) {
       const tip = TIP_COLOR[level](TIP_TEXT[level]);
-
-      console.log(`${tip} ${str}`);
-    } else {
-      console.log(str);
+      content = `${tip} ${str}`;
     }
+    if (needTime) console.log(formatDate(new Date(), 'HH:mm:ss'), content);
+    else console.log(content);
   }
 
   getPicture(filePath) {
