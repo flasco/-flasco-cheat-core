@@ -8,7 +8,9 @@
 /// <reference path="./core/flag-pool.d.ts" />
 
 declare module '@flasco/cheat-core' {
+  import Judge = require('@flasco/cheat-core/src/core/base-judge');
+  import { default as chainOperation } from '@flasco/cheat-core/src/utils/chainOperation';
+
+  export { Judge, chainOperation };
   export * from '@flasco/cheat-core/src/utils';
-  export * from '@flasco/cheat-core/src/core/base-judge';
-  export { default as chainOperation } from '@flasco/cheat-core/src/utils/chainOperation';
 }

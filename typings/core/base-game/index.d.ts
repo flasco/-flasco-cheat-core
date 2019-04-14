@@ -10,10 +10,10 @@ declare module '@flasco/cheat-core/src/core/base-game' {
   import { delay } from '@flasco/cheat-core/src/utils';
 
   interface BaseProps {
-    width: number
-    height: number
-    client: object
-    session: object
+    width: number;
+    height: number;
+    client: object;
+    session: object;
   }
 
   // 这里存放一些game的基础function

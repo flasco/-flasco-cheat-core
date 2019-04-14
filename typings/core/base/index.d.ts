@@ -22,10 +22,10 @@ declare module '@flasco/cheat-core/src/core/base' {
   // 这里提供一些最基础的能力
   class BaseApp<P> {
     constructor(props: Readonly<P>);
-    client: Client
-    session: Session
-    width: number
-    height: number
+    client: Client;
+    session: Session;
+    width: number;
+    height: number;
 
     /**
      * 点击事件
