@@ -4,8 +4,8 @@
 /// <reference path="./utils/chainOperation.d.ts" />
 /// <reference path="./core/base/index.d.ts" />
 /// <reference path="./core/base-game/index.d.ts" />
+/// <reference path="./core/base-judge/index.d.ts" />
 /// <reference path="./core/flag-pool.d.ts" />
-/// <reference path="./core/base-judge.d.ts" />
 
 declare module '@flasco/cheat-core' {
   export * from '@flasco/cheat-core/src/utils';
