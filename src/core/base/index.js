@@ -1,9 +1,9 @@
-const cv = require('opencv4nodejs');
 const formatDate = require('date-fns/format');
 
 const { base642Mat } = require('../../utils');
 const { TIP_COLOR, TIP_TEXT, LEVEL_INFO_MAP } = require('../../constants');
 const flagPool = require('../flag-pool');
+const Judge = require('../base-judge');
 
 class BaseApp {
   constructor({ client = '', session = '', width = '', height = '' }) {
@@ -78,21 +78,13 @@ class BaseApp {
   }
 
   judgeMatching(img1, img2, needLog = false) {
-    if (img1 == null || img2 == null) {
-      throw new Error('图像不能为空！');
-    }
-    const matched = img1.matchTemplate(img2, cv.TM_CCOEFF_NORMED);
-    const {
-      maxLoc: { x, y },
-      maxVal
-    } = matched.minMaxLoc();
+    if (img1 == null || img2 == null) throw new Error('图像不能为空！');
 
-    needLog && console.log(`maxSimple - ${maxVal.toFixed(2)}`);
+    const result = new Judge(img1).matchTemplate(img2);
+
+    needLog && console.log(`maxSimple - ${result.simple.toFixed(2)}`);
     // 之所以返回除以3，是因为屏幕缩放倍数的原因
-    return {
-      simple: maxVal,
-      point: { x: x / 3, y: y / 3 }
-    };
+    return result;
   }
 
   log(str, level = LEVEL_INFO_MAP.info, needTime = true) {
