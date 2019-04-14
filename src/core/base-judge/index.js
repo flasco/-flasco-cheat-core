@@ -25,14 +25,14 @@ class Judge {
   }
 
   getSimple(aimImage) {
-    const { simple } = this._matchTemplate(aimImage);
+    const { simple } = this.matchTemplate(aimImage);
     return simple;
   }
 
   match(aimImage, simpleVal = 0.75) {
     this._index++;
     if (this.result == null) {
-      const { point, simple } = this._matchTemplate(aimImage);
+      const { point, simple } = this.matchTemplate(aimImage);
 
       if (simple > simpleVal) {
         this.result = point;
