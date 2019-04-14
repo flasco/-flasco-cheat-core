@@ -10,7 +10,7 @@ declare module '@flasco/cheat-core/src/core/base-judge' {
 
   // 这里存放一些game的基础function
   class Judge {
-    constructor(img: cv.Mat): void
+    constructor(img: cv.Mat)
 
     /**
      * 只有在match执行之后才会用到
@@ -42,5 +42,5 @@ declare module '@flasco/cheat-core/src/core/base-judge' {
     match(aimImage: cv.Mat, simpleVal?: number): Judge
   }
 
-  export = GameCommon;
+  export = Judge;
 }
