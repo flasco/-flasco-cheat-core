@@ -18,6 +18,13 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
+"@flasco/logger@git+https://github.com/flasco/logger.git":
+  version "0.0.1"
+  resolved "git+https://github.com/flasco/logger.git#d27f5a78b2133e3a77bf6f1c6815343c35199398"
+  dependencies:
+    colors-cli "^1.0.23"
+    date-fns "^1.30.1"
+
 "@flasco/wda-driver@git+https://github.com/flasco/WDR.git":
   version "0.1.0"
   resolved "git+https://github.com/flasco/WDR.git#e86a4eccced70a52031867af994e04514875eafe"
@@ -708,6 +715,11 @@ colors-cli@^1.0.21:
   version "1.0.21"
   resolved "http://registry.npm.taobao.org/colors-cli/download/colors-cli-1.0.21.tgz#98ecefda11c9047b249c9ce04062e094f4f04758"
   integrity sha1-mOzv2hHJBHsknJzgQGLglPTwR1g=
+
+colors-cli@^1.0.23:
+  version "1.0.23"
+  resolved "https://registry.npm.taobao.org/colors-cli/download/colors-cli-1.0.23.tgz#e1addb2faaa945c91ebc55ca92f174b6efb6fa49"
+  integrity sha1-4a3bL6qpRckevFXKkvF0tu+2+kk=
 
 combined-stream@1.0.6:
   version "1.0.6"

@@ -1,7 +1,6 @@
-const formatDate = require('date-fns/format');
+const Logger = require('@flasco/logger');
 
 const { base642Mat } = require('../../utils');
-const { TIP_COLOR, TIP_TEXT, LEVEL_INFO_MAP } = require('../../constants');
 const flagPool = require('../flag-pool');
 const Judge = require('../base-judge');
 
@@ -66,7 +65,7 @@ class BaseApp {
   async screenshot(pathName = '', needMat = true) {
     // const msg = pathName !== '' ? ` pathName - ${pathName}` : '';
     try {
-      pathName !== '' && console.log(`screenshot! pathName - ${pathName}`);
+      pathName !== '' && Logger.info('screenshot! pathName -', pathName);
       const base64 = await this.client.screenshot(pathName);
       if (needMat && base64 != null) {
         return base642Mat(base64);
@@ -82,19 +81,9 @@ class BaseApp {
 
     const result = new Judge(img1).matchTemplate(img2);
 
-    needLog && console.log(`maxSimple - ${result.simple.toFixed(2)}`);
+    needLog && Logger.info(`maxSimple - ${result.simple.toFixed(2)}`);
     // 之所以返回除以3，是因为屏幕缩放倍数的原因
     return result;
-  }
-
-  log(str, level = LEVEL_INFO_MAP.info, needTime = true) {
-    let content = str;
-    if (TIP_COLOR[level] != null) {
-      const tip = TIP_COLOR[level](TIP_TEXT[level]);
-      content = `${tip} ${str}`;
-    }
-    if (needTime) console.log(formatDate(new Date(), 'HH:mm:ss'), content);
-    else console.log(content);
   }
 
   getPicture(filePath) {

@@ -9,15 +9,8 @@ declare module '@flasco/cheat-core/src/core/base-game' {
   import Base = require('@flasco/cheat-core/src/core/base');
   import { delay } from '@flasco/cheat-core/src/utils';
 
-  interface BaseProps {
-    width: number;
-    height: number;
-    client: object;
-    session: object;
-  }
-
   // 这里存放一些game的基础function
-  class GameCommon extends Base<BaseProps> {
+  class GameCommon extends Base {
     /**
      * 检测是否有需要点击的确定按钮，是则点击并返回true，否则返回false
      * @param flag 要点击的图片

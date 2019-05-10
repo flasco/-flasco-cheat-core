@@ -19,9 +19,16 @@ declare module '@flasco/cheat-core/src/core/base' {
     };
   }
 
+  interface BaseProps {
+    width: number;
+    height: number;
+    client: object;
+    session: object;
+  }
+
   // 这里提供一些最基础的能力
-  class BaseApp<P> {
-    constructor(props: Readonly<P>);
+  class BaseApp {
+    constructor(props: BaseProps);
     client: Client;
     session: Session;
     width: number;
@@ -91,14 +98,6 @@ declare module '@flasco/cheat-core/src/core/base' {
      * @param  needLog 是否需要打印日志，调试用
      */
     judgeMatching(img1: cv.Mat, img2: cv.Mat, needLog: boolean): MatchRes;
-
-    /**
-     * 输出美化过的log
-     * @param str 提示文案
-     * @param level 从constants里取
-     * @param needTime 是否需要展示时间戳
-     */
-    log(str: string, level: symbol, needTime: boolean): void;
 
     /**
      * 获取pic Mat
