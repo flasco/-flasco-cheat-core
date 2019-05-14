@@ -36,13 +36,13 @@ class GameCommon extends Base {
     return true;
   }
 
-  async judgeSimple(img, containImg) {
-    if (containImg == null) {
-      containImg = img;
-      img = await this.screenshot();
-    }
+  isSimple(img, containImg, threshold = 0.75) {
+    if (img == null || containImg == null) throw new Error('缺失参数...');
+    if (typeof img === 'string') img = this.getPicture(img);
+    if (typeof containImg === 'string') containImg = this.getPicture(containImg);
+
     const { simple } = this.judgeMatching(img, containImg);
-    return simple;
+    return simple > threshold;
   }
 }
 

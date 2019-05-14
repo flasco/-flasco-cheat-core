@@ -34,8 +34,13 @@ declare module '@flasco/cheat-core/src/core/base-game' {
      * 在父图片中查找子图片，获取相似度
      * @param img 子图片
      * @param containImg 父图片
+     * @param threshold 阈值 默认0.75
      */
-    judgeSimple(img: cv.Mat, containImg: cv.Mat): Promise<number>;
+    isSimple(
+      img: cv.Mat | string,
+      containImg: cv.Mat | string,
+      threshold: number
+    ): boolean;
   }
 
   export = GameCommon;

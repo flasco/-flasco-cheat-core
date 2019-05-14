@@ -1,6 +1,6 @@
 const Logger = require('@flasco/logger');
 
-const { base642Mat } = require('../../utils');
+const { binary2Mat } = require('../../utils');
 const flagPool = require('../flag-pool');
 const Judge = require('../base-judge');
 
@@ -66,11 +66,9 @@ class BaseApp {
     // const msg = pathName !== '' ? ` pathName - ${pathName}` : '';
     try {
       pathName !== '' && Logger.info('screenshot! pathName -', pathName);
-      const base64 = await this.client.screenshot(pathName);
-      if (needMat && base64 != null) {
-        return base642Mat(base64);
-      }
-      return base64;
+      const binary = await this.client.screenshot(pathName);
+      if (needMat && binary != null) return binary2Mat(binary);
+      return binary;
     } catch (error) {
       throw new Error('啊哦，断掉了');
     }
@@ -78,6 +76,8 @@ class BaseApp {
 
   judgeMatching(img1, img2, needLog = false) {
     if (img1 == null || img2 == null) throw new Error('图像不能为空！');
+    if (typeof img1 === 'string') img1 = this.getPicture(img1);
+    if (typeof img2 === 'string') img2 = this.getPicture(img2);
 
     const result = new Judge(img1).matchTemplate(img2);
 
@@ -86,8 +86,8 @@ class BaseApp {
     return result;
   }
 
-  getPicture(filePath) {
-    return flagPool.getFlag(filePath);
+  getPicture(filePath, needStore = true) {
+    return flagPool.getFlag(filePath, needStore);
   }
 }
 

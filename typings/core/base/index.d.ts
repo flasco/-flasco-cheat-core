@@ -97,13 +97,18 @@ declare module '@flasco/cheat-core/src/core/base' {
      * @param img2 父图片
      * @param  needLog 是否需要打印日志，调试用
      */
-    judgeMatching(img1: cv.Mat, img2: cv.Mat, needLog: boolean): MatchRes;
+    judgeMatching(
+      img1: cv.Mat | string,
+      img2: cv.Mat | string,
+      needLog: boolean
+    ): MatchRes;
 
     /**
      * 获取pic Mat
      * @param filePath 图片文件路径
+     * @param needStore 是否需要存储，默认为 true
      */
-    getPicture(filePath: string): cv.Mat;
+    getPicture(filePath: string, needStore: boolean): cv.Mat;
   }
 
   export = BaseApp;

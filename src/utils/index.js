@@ -9,6 +9,11 @@ function base642Mat(base64text) {
   return image;
 }
 
+function binary2Mat(buffer) {
+  const image = cv.imdecode(buffer); //Image is now represented as Mat
+  return image;
+}
+
 function delay(ms) {
   return new Promise(resolve => {
     setTimeout(resolve, ms);
@@ -17,5 +22,6 @@ function delay(ms) {
 
 module.exports = {
   base642Mat,
+  binary2Mat,
   delay,
 };

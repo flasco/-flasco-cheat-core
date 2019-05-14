@@ -5,9 +5,11 @@ class FlagPool {
     this.appMap = {};
   }
 
-  getFlag(flagPath) {
+  getFlag(flagPath, needStore = true) {
     if (this.appMap[flagPath] == null) {
-      this.appMap[flagPath] = cv.imread(flagPath);
+      const img = cv.imread(flagPath);
+      if (!needStore) return img;
+      this.appMap[flagPath] = img;
     }
     return this.appMap[flagPath];
   }
