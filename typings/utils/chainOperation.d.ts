@@ -31,6 +31,15 @@ declare module '@flasco/cheat-core/src/utils/chainOperation' {
       };
     }
 
+    interface longPress {
+      action: 'longPress';
+      options: {
+        x: number;
+        y: number;
+        duration: number;
+      };
+    }
+
     interface release {
       action: 'release';
     }
@@ -68,8 +77,7 @@ declare module '@flasco/cheat-core/src/utils/chainOperation' {
       druation: number,
       rand?: number
     ): [
-      actionInf.press,
-      actionInf.wait,
+      actionInf.longPress,
       actionInf.moveTo,
       actionInf.wait,
       actionInf.release

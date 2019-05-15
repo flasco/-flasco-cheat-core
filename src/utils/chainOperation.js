@@ -26,7 +26,7 @@ function wait(ms) {
   };
 }
 
-function drag([x1, y1], [x2, y2], druation, rand = 0) {
+function drag([x1, y1], [x2, y2], druation = 800, rand = 0) {
   x1 = getRandom(x1, rand);
   x2 = getRandom(x2, rand);
   y1 = getRandom(y1, rand);
@@ -34,14 +34,12 @@ function drag([x1, y1], [x2, y2], druation, rand = 0) {
 
   return [
     {
-      action: 'press',
+      action: 'longPress',
       options: {
         x: x1,
-        y: y1
+        y: y1,
+        druation,
       }
-    },{
-      action: 'wait',
-      options: { ms: druation }
     },
     {
       action: 'moveTo',
@@ -56,9 +54,6 @@ function drag([x1, y1], [x2, y2], druation, rand = 0) {
     },
     {
       action: 'release'
-    }, {
-      action: 'wait',
-      options: { ms: 280 }
     }
   ];
 }
