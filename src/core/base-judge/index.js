@@ -1,8 +1,9 @@
 const cv = require('opencv4nodejs');
 
 class Judge {
-  constructor(img) {
+  constructor(img, scale = 3) {
     this._baseImage = img;
+    this._scale = scale;
     this.result = null;
     this.resId = -1;
     this._index = 0;
@@ -20,7 +21,7 @@ class Judge {
     } = matched.minMaxLoc();
     return {
       simple: maxVal,
-      point: { x: x / 3, y: y / 3 }
+      point: { x: x / this._scale, y: y / this._scale }
     };
   }
 

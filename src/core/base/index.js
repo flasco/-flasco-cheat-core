@@ -1,15 +1,16 @@
 const Logger = require('@flasco/logger');
 
-const { binary2Mat } = require('../../utils');
+const { binary2Mat, delay } = require('../../utils');
 const flagPool = require('../flag-pool');
 const Judge = require('../base-judge');
 
 class BaseApp {
-  constructor({ client = '', session = '', width = '', height = '' }) {
+  constructor({ client = '', session = '', width = '', height = '', scale = 3 }) {
     this.client = client;
     this.session = session;
     this.width = width;
     this.height = height;
+    this.scale = scale;
   }
 
   async tap(x, y, needRandom = false, randX, randY) {
@@ -79,7 +80,7 @@ class BaseApp {
     if (typeof img1 === 'string') img1 = this.getPicture(img1);
     if (typeof img2 === 'string') img2 = this.getPicture(img2);
 
-    const result = new Judge(img1).matchTemplate(img2);
+    const result = new Judge(img1, this.scale).matchTemplate(img2);
 
     needLog && Logger.info(`maxSimple - ${result.simple.toFixed(2)}`);
     // 之所以返回除以3，是因为屏幕缩放倍数的原因
@@ -88,6 +89,14 @@ class BaseApp {
 
   getPicture(filePath, needStore = true) {
     return flagPool.getFlag(filePath, needStore);
+  }
+
+  judge(img) {
+    return new Judge(img, this.scale);
+  }
+
+  delay(ms) {
+    return delay(ms);
   }
 }
 
