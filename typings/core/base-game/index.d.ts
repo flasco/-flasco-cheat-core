@@ -16,7 +16,7 @@ declare module '@flasco/cheat-core/src/core/base-game' {
      * @param flag 要点击的图片
      * @returns 否有需要点击的确定按钮
      */
-    clickFlag(flag: cv.Mat): Promise<boolean>;
+    clickFlag(flag: cv.Mat | string): Promise<boolean>;
 
     /**
      * 重复点击，最大失败次数
@@ -27,7 +27,7 @@ declare module '@flasco/cheat-core/src/core/base-game' {
     tryClickREP(
       needCnt: number,
       maxFailedCnt: number,
-      flag: cv.Mat
+      flag: cv.Mat | string
     ): Promise<boolean>;
 
     /**

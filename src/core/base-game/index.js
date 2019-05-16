@@ -9,7 +9,7 @@ class GameCommon extends Base {
     const {
       simple,
       point: { x, y }
-    } = this.judgeMatching(img, flag);
+    } = this.judgeMatching(flag, img);
     if (simple > 0.8) {
       await this.tap(x, y, true);
       return true;
@@ -21,7 +21,7 @@ class GameCommon extends Base {
     let cnt = 0;
     let failedCnt = 0;
     while (cnt < needCnt) {
-      await delay(1100);
+      await delay(1000 + 1000 * failedCnt);
       const isClick = await this.clickFlag(flag);
       if (isClick) {
         cnt++;
