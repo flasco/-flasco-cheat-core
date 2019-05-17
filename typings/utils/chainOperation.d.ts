@@ -1,50 +1,50 @@
 declare module '@flasco/cheat-core/src/utils/chainOperation' {
-  namespace actionInf {
-    interface press {
-      action: 'press';
-      options: {
-        x: number;
-        y: number;
-      };
-    }
-
-    interface moveTo {
-      action: 'moveTo';
-      options: {
-        x: number;
-        y: number;
-      };
-    }
-
-    interface tap {
-      action: 'tap';
-      options: {
-        x: number;
-        y: number;
-      };
-    }
-
-    interface wait {
-      action: 'wait';
-      options: {
-        ms: number;
-      };
-    }
-
-    interface longPress {
-      action: 'longPress';
-      options: {
-        x: number;
-        y: number;
-        duration: number;
-      };
-    }
-
-    interface release {
-      action: 'release';
-    }
-  }
   namespace chainOperation {
+    namespace actionInf {
+      interface press {
+        action: 'press';
+        options: {
+          x: number;
+          y: number;
+        };
+      }
+
+      interface moveTo {
+        action: 'moveTo';
+        options: {
+          x: number;
+          y: number;
+        };
+      }
+
+      interface tap {
+        action: 'tap';
+        options: {
+          x: number;
+          y: number;
+        };
+      }
+
+      interface wait {
+        action: 'wait';
+        options: {
+          ms: number;
+        };
+      }
+
+      interface longPress {
+        action: 'longPress';
+        options: {
+          x: number;
+          y: number;
+          duration: number;
+        };
+      }
+
+      interface release {
+        action: 'release';
+      }
+    }
     /**
      * 长按
      * @param x x坐标

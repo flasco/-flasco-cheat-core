@@ -1,6 +1,7 @@
 /// <reference types="node" />
 
 /// <reference path="../flag-pool.d.ts" />
+/// <reference path="../base-judge/index.d.ts" />
 /// <reference path="../../utils/index.d.ts" />
 /// <reference path="../../utils/chainOperation.d.ts" />
 
@@ -10,6 +11,7 @@ declare module '@flasco/cheat-core/src/core/base' {
   import { base642Mat } from '@flasco/cheat-core/src/utils';
   import { actionInf } from '@flasco/cheat-core/src/utils/chainOperation';
   import flagPool from '@flasco/cheat-core/src/core/flag-pool';
+  import Judge = require('@flasco/cheat-core/src/core/base-judge');
 
   interface MatchRes {
     simple: number;
@@ -109,6 +111,18 @@ declare module '@flasco/cheat-core/src/core/base' {
      * @param needStore 是否需要存储，默认为 true
      */
     getPicture(filePath: string, needStore: boolean): cv.Mat;
+
+    /**
+     * 等待
+     * @param ms 毫秒
+     */
+    delay(ms: number): Promise<void>;
+
+    /**
+     * 获取judge
+     * @param img 图片
+     */
+    judge(img: string | cv.Mat): Judge;
   }
 
   export = BaseApp;
