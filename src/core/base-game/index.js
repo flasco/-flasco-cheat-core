@@ -4,25 +4,25 @@ const { delay } = require('../../utils');
 
 // 这里存放一些game的基础function
 class GameCommon extends Base {
-  async clickFlag(flag) {
+  async clickFlag(flag, threshold = 0.75) {
     const img = await this.screenshot();
     const {
       simple,
       point: { x, y }
     } = this.judgeMatching(flag, img);
-    if (simple > 0.8) {
+    if (simple > threshold) {
       await this.tap(x, y, true);
       return true;
     }
     return false;
   }
 
-  async tryClickREP(needCnt = 1, maxFailedCnt = 3, flag) {
+  async tryClickREP(needCnt = 1, maxFailedCnt = 3, flag, threshold = 0.75) {
     let cnt = 0;
     let failedCnt = 0;
     while (cnt < needCnt) {
       await delay(1000 + 1000 * failedCnt);
-      const isClick = await this.clickFlag(flag);
+      const isClick = await this.clickFlag(flag, threshold);
       if (isClick) {
         cnt++;
         failedCnt = 0;
