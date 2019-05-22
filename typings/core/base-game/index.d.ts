@@ -34,6 +34,16 @@ declare module '@flasco/cheat-core/src/core/base-game' {
     ): Promise<boolean>;
 
     /**
+     * 一直等待直到出现符合条件的图片
+     * @param flag 标志图片
+     * @param opt 额外选项
+     */
+    waitUntil(
+      flag: string | cv.Mat,
+      opt?: { triedCnt: number }
+    ): Promise<cv.Mat>;
+
+    /**
      * 在父图片中查找子图片，获取相似度
      * @param img 子图片
      * @param containImg 父图片

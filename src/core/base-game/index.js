@@ -36,6 +36,18 @@ class GameCommon extends Base {
     return true;
   }
 
+  async waitUntil(flag, { triedCnt = 7 }) {
+    if (typeof flag === 'string') flag = this.getPicture(flag);
+    let sleepSec = 0;
+    for (let i = 0; i < triedCnt; i++) {
+      sleepSec < 5000 && (sleepSec += 1000);
+
+      const image = await this.screenshot();
+      if (this.isSimple(flag, image)) return image;
+      await this.delay(sleepSec);
+    }
+  }
+
   isSimple(img, containImg, threshold = 0.75) {
     if (img == null || containImg == null) throw new Error('缺失参数...');
     if (typeof img === 'string') img = this.getPicture(img);
