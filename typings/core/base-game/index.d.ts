@@ -40,7 +40,7 @@ declare module '@flasco/cheat-core/src/core/base-game' {
      */
     waitUntil(
       flag: string | cv.Mat,
-      opt?: { triedCnt: number }
+      opt?: { triedCnt: number; threshold: number }
     ): Promise<cv.Mat>;
 
     /**

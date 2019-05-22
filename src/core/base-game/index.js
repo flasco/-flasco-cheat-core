@@ -36,14 +36,14 @@ class GameCommon extends Base {
     return true;
   }
 
-  async waitUntil(flag, { triedCnt = 7 }) {
+  async waitUntil(flag, { triedCnt = 7, threshold = 0.75 }) {
     if (typeof flag === 'string') flag = this.getPicture(flag);
     let sleepSec = 0;
     for (let i = 0; i < triedCnt; i++) {
       sleepSec < 5000 && (sleepSec += 1000);
 
       const image = await this.screenshot();
-      if (this.isSimple(flag, image)) return image;
+      if (this.isSimple(flag, image, threshold)) return image;
       await this.delay(sleepSec);
     }
   }
