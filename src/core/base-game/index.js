@@ -46,6 +46,7 @@ class GameCommon extends Base {
       if (this.isSimple(flag, image, threshold)) return image;
       await this.delay(sleepSec);
     }
+    throw new Error('wait until timeout');
   }
 
   isSimple(img, containImg, threshold = 0.75) {
