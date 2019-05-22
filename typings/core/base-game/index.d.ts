@@ -41,7 +41,7 @@ declare module '@flasco/cheat-core/src/core/base-game' {
     waitUntil(
       flag: string | cv.Mat,
       opt?: { triedCnt: number; threshold: number }
-    ): Promise<cv.Mat>;
+    ): Promise<cv.Mat | void>;
 
     /**
      * 在父图片中查找子图片，获取相似度
