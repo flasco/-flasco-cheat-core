@@ -1,11 +1,10 @@
 {
   "name": "@flasco/cheat-core",
   "version": "0.3.0",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "author": "flasco",
   "license": "BSD 3-Clause",
   "private": true,
-  "typings": "typings/index.d.ts",
   "scripts": {
     "start": "node ./index.js",
     "ts:build": "tsc",
