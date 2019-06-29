@@ -4,8 +4,8 @@ import Base from '../base';
 import { delay } from '../../utils';
 
 interface IOptions {
-  triedCnt: number;
-  threshold: number;
+  triedCnt?: number;
+  threshold?: number;
 }
 
 type IMGORstring = cv.Mat | string;
@@ -68,7 +68,7 @@ class GameCommon extends Base {
    * @param opt 额外选项
    */
   async waitUntil(flag: IMGORstring, options: IOptions) {
-    const { triedCnt = 3, threshold = 0.75 } = options;
+    const { triedCnt = 3, threshold = 0.75 } = options || {};
 
     if (typeof flag === 'string') flag = this.getPicture(flag);
     let sleepSec = 0;

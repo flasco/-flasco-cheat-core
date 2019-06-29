@@ -33,7 +33,7 @@ class GameCommon extends base_1.default {
         return true;
     }
     async waitUntil(flag, options) {
-        const { triedCnt = 3, threshold = 0.75 } = options;
+        const { triedCnt = 3, threshold = 0.75 } = options || {};
         if (typeof flag === 'string')
             flag = this.getPicture(flag);
         let sleepSec = 0;

@@ -1,8 +1,8 @@
 import cv from 'opencv4nodejs';
 import Base from '../base';
 interface IOptions {
-    triedCnt: number;
-    threshold: number;
+    triedCnt?: number;
+    threshold?: number;
 }
 declare type IMGORstring = cv.Mat | string;
 declare class GameCommon extends Base {
