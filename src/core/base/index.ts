@@ -31,7 +31,7 @@ class BaseApp {
     this.height = height;
     this.scale = scale;
 
-    this.init && this.init();
+    this.init && this.init(props);
   }
 
   init: Function | undefined;

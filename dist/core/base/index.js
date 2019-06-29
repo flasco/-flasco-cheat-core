@@ -13,7 +13,7 @@ class BaseApp {
         this.width = width;
         this.height = height;
         this.scale = scale;
-        this.init && this.init();
+        this.init && this.init(props);
     }
     async tap(x, y, needRandom = false, randX, randY) {
         if (randX == null) {
