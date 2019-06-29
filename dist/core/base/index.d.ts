@@ -1,7 +1,7 @@
 import cv from 'opencv4nodejs';
 import { Client, Session } from '@flasco/wda-driver';
 import Judge from '../base-judge';
-interface IProps {
+export interface IProps {
     client: Client;
     session: Session;
     width: number;
@@ -33,4 +33,4 @@ declare class BaseApp {
     judge(img: cv.Mat): Judge;
     delay(ms: number): Promise<void>;
 }
-export = BaseApp;
+export default BaseApp;

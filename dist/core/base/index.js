@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const logger_1 = tslib_1.__importDefault(require("@flasco/logger"));
 const utils_1 = require("../../utils");
@@ -94,5 +95,5 @@ class BaseApp {
         return utils_1.delay(ms);
     }
 }
-module.exports = BaseApp;
+exports.default = BaseApp;
 //# sourceMappingURL=index.js.map

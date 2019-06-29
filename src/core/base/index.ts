@@ -6,7 +6,7 @@ import { binary2Mat, delay } from '../../utils';
 import flagPool from '../flag-pool';
 import Judge from '../base-judge';
 
-interface IProps {
+export interface IProps {
   client: Client;
   session: Session;
   width: number;
@@ -175,4 +175,4 @@ class BaseApp {
   }
 }
 
-export = BaseApp;
+export default BaseApp;
