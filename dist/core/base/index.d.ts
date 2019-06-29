@@ -16,6 +16,7 @@ declare class BaseApp {
     height: number;
     scale: number;
     constructor(props: IProps);
+    init: Function | undefined;
     tap(x: number, y: number, needRandom?: boolean, randX?: number, randY?: number): Promise<void>;
     chainOperation(actions: object[]): Promise<void>;
     drag(x1: number, y1: number, x2: number, y2: number, duration?: number): Promise<void>;

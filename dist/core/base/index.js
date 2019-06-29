@@ -12,6 +12,7 @@ class BaseApp {
         this.width = width;
         this.height = height;
         this.scale = scale;
+        this.init && this.init();
     }
     async tap(x, y, needRandom = false, randX, randY) {
         if (randX == null) {

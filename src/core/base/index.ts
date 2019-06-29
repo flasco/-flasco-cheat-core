@@ -30,7 +30,12 @@ class BaseApp {
     this.width = width;
     this.height = height;
     this.scale = scale;
+
+    this.init && this.init();
   }
+
+  init: Function | undefined;
+
   /**
    * 点击事件
    * @param x x坐标
