@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const opencv4nodejs_1 = tslib_1.__importDefault(require("opencv4nodejs"));
 class Judge {
@@ -33,5 +34,5 @@ class Judge {
         this._scale = scale;
     }
 }
-module.exports = Judge;
+exports.default = Judge;
 //# sourceMappingURL=index.js.map

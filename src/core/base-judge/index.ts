@@ -1,6 +1,6 @@
 import cv from 'opencv4nodejs';
 
-interface Point {
+export interface IPoint {
   x: number;
   y: number;
 }
@@ -13,7 +13,7 @@ class Judge {
   /**
    * 只有在match执行之后才会用到
    */
-  result: Point | null = null;
+  result: IPoint | null = null;
 
   /**
    * 第几个match
@@ -73,4 +73,4 @@ class Judge {
   };
 }
 
-export = Judge;
+export default Judge;
