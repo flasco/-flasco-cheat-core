@@ -1,5 +1,10 @@
 import cv from 'opencv4nodejs';
 
+interface Point {
+  x: number;
+  y: number;
+}
+
 class Judge {
   private _baseImage: cv.Mat;
   private _scale: number;
@@ -8,7 +13,7 @@ class Judge {
   /**
    * 只有在match执行之后才会用到
    */
-  result: null | object = null;
+  result: Point | null = null;
 
   /**
    * 第几个match

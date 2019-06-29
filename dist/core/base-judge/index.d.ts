@@ -1,9 +1,13 @@
 import cv from 'opencv4nodejs';
+interface Point {
+    x: number;
+    y: number;
+}
 declare class Judge {
     private _baseImage;
     private _scale;
     private _index;
-    result: null | object;
+    result: Point | null;
     resId: number;
     constructor(img: cv.Mat, scale?: number);
     matchTemplate: (aimImage: cv.Mat) => {
