@@ -7,7 +7,7 @@ export interface IProps {
     session: Session;
     width: number;
     height: number;
-    scale: number;
+    scale?: number;
 }
 export declare type IMGORstring = cv.Mat | string;
 declare class BaseApp {
@@ -17,7 +17,7 @@ declare class BaseApp {
     height: number;
     scale: number;
     constructor(props: IProps);
-    init: Function | undefined;
+    init?: Function;
     tap(x: number, y: number, needRandom?: boolean, randX?: number, randY?: number): Promise<void>;
     chainOperation(actions: IChainOperation[]): Promise<void>;
     drag(x1: number, y1: number, x2: number, y2: number, duration?: number): Promise<void>;

@@ -12,7 +12,7 @@ export interface IProps {
   session: Session;
   width: number;
   height: number;
-  scale: number;
+  scale?: number;
 }
 
 export type IMGORstring = cv.Mat | string;
@@ -35,7 +35,7 @@ class BaseApp {
     this.init && this.init(props);
   }
 
-  init: Function | undefined;
+  init?: Function;
 
   /**
    * 点击事件
