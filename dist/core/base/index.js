@@ -64,6 +64,8 @@ class BaseApp {
     }
     async screenshot(pathName, needMat) {
         try {
+            if (pathName == null)
+                pathName = '';
             pathName !== '' && logger_1.default.info('screenshot! pathName -', pathName);
             const binary = await this.client.screenshot(pathName);
             if (needMat && binary != null)

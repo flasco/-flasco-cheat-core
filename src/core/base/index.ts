@@ -124,7 +124,8 @@ class BaseApp {
   async screenshot(pathName?: any, needMat?: boolean): Promise<any> {
     // const msg = pathName !== '' ? ` pathName - ${pathName}` : '';
     try {
-      pathName !== '' && Logger.info('screenshot! pathName -', pathName);
+      if (pathName == null) pathName = '';
+      pathName !== ''  && Logger.info('screenshot! pathName -', pathName);
       const binary = await this.client.screenshot(pathName);
       if (needMat && binary != null) return binary2Mat(binary);
       return binary;
