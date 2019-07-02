@@ -1,5 +1,4 @@
-import cv from 'opencv4nodejs';
-import Base from '../base';
+import Base, { IMGORstring } from '../base';
 
 import { delay } from '../../utils';
 
@@ -7,8 +6,6 @@ interface IOptions {
   triedCnt?: number;
   threshold?: number;
 }
-
-type IMGORstring = cv.Mat | string;
 
 // 这里存放一些game的基础function
 class GameCommon extends Base {
@@ -63,7 +60,7 @@ class GameCommon extends Base {
   }
 
   /**
-   * 一直等待直到出现符合条件的图片
+   * 一直等待直到出现符合条件的图片，无返回值时意味着失败了
    * @param flag 标志图片
    * @param opt 额外选项
    */

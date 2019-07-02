@@ -1,3 +1,5 @@
+export type IChainOperation = ITap | IPress | IMoveTo | ILongPress | IRelease | IWait;
+
 interface ITap {
   action: 'tap';
   options: {
