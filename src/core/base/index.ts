@@ -2,6 +2,7 @@ import cv from 'opencv4nodejs';
 import Logger from '@flasco/logger';
 import { Client, Session } from '@flasco/wda-driver';
 
+import { IChainOperation } from '../../utils/chainOperation';
 import { binary2Mat, delay } from '../../utils';
 import flagPool from '../flag-pool';
 import Judge from '../base-judge';
@@ -14,7 +15,7 @@ export interface IProps {
   scale: number;
 }
 
-type IMGORstring = cv.Mat | string;
+export type IMGORstring = cv.Mat | string;
 
 class BaseApp {
   client: Client;
@@ -76,7 +77,7 @@ class BaseApp {
    * 执行动作链
    * @param actions 动作链
    */
-  async chainOperation(actions: object[]) {
+  async chainOperation(actions: IChainOperation[]) {
     try {
       await this.session.chainOperation(actions);
     } catch (error) {
@@ -114,12 +115,13 @@ class BaseApp {
       throw new Error('啊哦，断掉了');
     }
   }
+
   /**
    * 截屏
-   * @param {string} pathName 文件路径
-   * @param {boolean} needMat 是否需要返回Mat
    */
-  async screenshot(pathName: string = '', needMat: boolean = true) {
+  async screenshot(): Promise<cv.Mat>;
+  async screenshot(pathName: string, needMat: boolean): Promise<void | cv.Mat>;
+  async screenshot(pathName?: any, needMat?: boolean): Promise<any> {
     // const msg = pathName !== '' ? ` pathName - ${pathName}` : '';
     try {
       pathName !== '' && Logger.info('screenshot! pathName -', pathName);

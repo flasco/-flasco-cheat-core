@@ -1,5 +1,6 @@
 import cv from 'opencv4nodejs';
 import { Client, Session } from '@flasco/wda-driver';
+import { IChainOperation } from '../../utils/chainOperation';
 import Judge from '../base-judge';
 export interface IProps {
     client: Client;
@@ -8,7 +9,7 @@ export interface IProps {
     height: number;
     scale: number;
 }
-declare type IMGORstring = cv.Mat | string;
+export declare type IMGORstring = cv.Mat | string;
 declare class BaseApp {
     client: Client;
     session: Session;
@@ -18,10 +19,11 @@ declare class BaseApp {
     constructor(props: IProps);
     init: Function | undefined;
     tap(x: number, y: number, needRandom?: boolean, randX?: number, randY?: number): Promise<void>;
-    chainOperation(actions: object[]): Promise<void>;
+    chainOperation(actions: IChainOperation[]): Promise<void>;
     drag(x1: number, y1: number, x2: number, y2: number, duration?: number): Promise<void>;
     tapHold(x: number, y: number, delay?: number): Promise<void>;
-    screenshot(pathName?: string, needMat?: boolean): Promise<any>;
+    screenshot(): Promise<cv.Mat>;
+    screenshot(pathName: string, needMat: boolean): Promise<void | cv.Mat>;
     judgeMatching(img1: IMGORstring, img2: IMGORstring, needLog?: boolean): {
         simple: number;
         point: {
