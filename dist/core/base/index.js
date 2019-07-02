@@ -62,10 +62,8 @@ class BaseApp {
             throw new Error('啊哦，断掉了');
         }
     }
-    async screenshot(pathName, needMat) {
+    async screenshot(pathName = '', needMat = true) {
         try {
-            if (pathName == null)
-                pathName = '';
             pathName !== '' && logger_1.default.info('screenshot! pathName -', pathName);
             const binary = await this.client.screenshot(pathName);
             if (needMat && binary != null)
