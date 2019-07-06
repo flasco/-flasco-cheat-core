@@ -79,6 +79,26 @@ class GameCommon extends Base {
   }
 
   /**
+   * 一直检测直到没有子图片存在，如果在尝试次数之内还有就返回 false
+   * @param flag 字图片
+   * @param options 可选项
+   */
+  async checkUntilNot(flag: IMGORstring, options: IOptions) {
+    const { triedCnt = 3, threshold = 0.75 } = options || {};
+
+    if (typeof flag === 'string') flag = this.getPicture(flag);
+    let sleepSec = 0;
+    for (let i = 0; i < triedCnt; i++) {
+      sleepSec < 5000 && (sleepSec += 1000);
+
+      const image = await this.screenshot();
+      if (!this.isSimple(flag, image, threshold)) return true;
+      await this.delay(sleepSec);
+    }
+    return false;
+  }
+
+  /**
    * 在父图片中查找子图片，获取相似度
    * @param img 子图片
    * @param containImg 父图片

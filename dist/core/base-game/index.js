@@ -45,6 +45,20 @@ class GameCommon extends base_1.default {
             await this.delay(sleepSec);
         }
     }
+    async checkUntilNot(flag, options) {
+        const { triedCnt = 3, threshold = 0.75 } = options || {};
+        if (typeof flag === 'string')
+            flag = this.getPicture(flag);
+        let sleepSec = 0;
+        for (let i = 0; i < triedCnt; i++) {
+            sleepSec < 5000 && (sleepSec += 1000);
+            const image = await this.screenshot();
+            if (!this.isSimple(flag, image, threshold))
+                return true;
+            await this.delay(sleepSec);
+        }
+        return false;
+    }
     isSimple(img, containImg, threshold = 0.75) {
         if (img == null || containImg == null)
             throw new Error('缺失参数...');
