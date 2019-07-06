@@ -64,7 +64,7 @@ class GameCommon extends Base {
    * @param flag 标志图片
    * @param opt 额外选项
    */
-  async waitUntil(flag: IMGORstring, options: IOptions) {
+  async waitUntil(flag: IMGORstring, options?: IOptions) {
     const { triedCnt = 3, threshold = 0.75 } = options || {};
 
     if (typeof flag === 'string') flag = this.getPicture(flag);
@@ -83,7 +83,7 @@ class GameCommon extends Base {
    * @param flag 字图片
    * @param options 可选项
    */
-  async checkUntilNot(flag: IMGORstring, options: IOptions) {
+  async checkUntilNot(flag: IMGORstring, options?: IOptions) {
     const { triedCnt = 3, threshold = 0.75 } = options || {};
 
     if (typeof flag === 'string') flag = this.getPicture(flag);
