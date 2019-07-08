@@ -53,7 +53,7 @@ class BaseApp {
             throw new Error('啊哦，断掉了');
         }
     }
-    async drag(x1, y1, x2, y2, duration = 0.7) {
+    async drag(x1, y1, x2, y2, duration = 700) {
         try {
             await this.chainOperation(chainOperation_1.drag([x1, y1], [x2, y2], duration));
         }
@@ -61,11 +61,11 @@ class BaseApp {
             throw new Error('啊哦，断掉了');
         }
     }
-    async tapHold(x, y, ms = 800) {
+    async tapHold(x, y, duration = 800) {
         x = Math.round(x * 100) / 100;
         y = Math.round(y * 100) / 100;
         try {
-            await this.chainOperation(chainOperation_1.longPress(x, y, ms));
+            await this.chainOperation(chainOperation_1.longPress(x, y, duration));
         }
         catch (error) {
             throw new Error('啊哦，断掉了');

@@ -21,7 +21,7 @@ declare class BaseApp {
     tap(x: number, y: number, needRandom?: boolean, randX?: number, randY?: number): Promise<void>;
     chainOperation(actions: IChainOperation[]): Promise<void>;
     drag(x1: number, y1: number, x2: number, y2: number, duration?: number): Promise<void>;
-    tapHold(x: number, y: number, ms?: number): Promise<void>;
+    tapHold(x: number, y: number, duration?: number): Promise<void>;
     screenshot(): Promise<cv.Mat>;
     screenshot(pathName: string, needMat: boolean): Promise<void | cv.Mat>;
     judgeMatching(img1: IMGORstring, img2: IMGORstring, needLog?: boolean): {
