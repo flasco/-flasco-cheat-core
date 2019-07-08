@@ -2,7 +2,7 @@ import cv from 'opencv4nodejs';
 import Logger from '@flasco/logger';
 import { Client, Session } from '@flasco/wda-driver';
 
-import { IChainOperation } from '../../utils/chainOperation';
+import { IChainOperation, drag, longPress } from '../../utils/chainOperation';
 import { binary2Mat, delay } from '../../utils';
 import flagPool from '../flag-pool';
 import Judge from '../base-judge';
@@ -68,7 +68,15 @@ class BaseApp {
 
     // this.log(`tap [${x}, ${y}]`);
     try {
-      await this.session.tap(x, y);
+      await this.chainOperation([
+        {
+          action: 'tap',
+          options: {
+            x,
+            y,
+          },
+        },
+      ]);
     } catch (error) {
       throw new Error('啊哦，断掉了');
     }
@@ -94,7 +102,7 @@ class BaseApp {
    */
   async drag(x1: number, y1: number, x2: number, y2: number, duration = 0.7) {
     try {
-      await this.session.swipe(x1, y1, x2, y2, duration);
+      await this.chainOperation(drag([x1, y1], [x2, y2], duration));
     } catch (error) {
       throw new Error('啊哦，断掉了');
     }
@@ -103,14 +111,13 @@ class BaseApp {
    * 长按
    * @param x x坐标
    * @param y y坐标
-   * @param delay 秒为单位
+   * @param ms 毫秒为单位
    */
-  async tapHold(x: number, y: number, delay = 1.0) {
+  async tapHold(x: number, y: number, ms = 800) {
     x = Math.round(x * 100) / 100;
     y = Math.round(y * 100) / 100;
-    // this.log(`tapHold [${x}, ${y}]`);
     try {
-      await this.session.tapHold(x, y, delay);
+      await this.chainOperation(longPress(x, y, ms));
     } catch (error) {
       throw new Error('啊哦，断掉了');
     }
@@ -123,7 +130,7 @@ class BaseApp {
   async screenshot(pathName: string, needMat: boolean): Promise<void | cv.Mat>;
   async screenshot(pathName = '', needMat = true): Promise<any> {
     try {
-      pathName !== ''  && Logger.info('screenshot! pathName -', pathName);
+      pathName !== '' && Logger.info('screenshot! pathName -', pathName);
       const binary = await this.client.screenshot(pathName);
       if (needMat && binary != null) return binary2Mat(binary);
       return binary;
