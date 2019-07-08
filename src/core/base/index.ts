@@ -98,9 +98,9 @@ class BaseApp {
    * @param y1 前坐标y
    * @param x2 后坐标x
    * @param y2 后坐标y
-   * @param duration 耗时，秒为单位
+   * @param duration 耗时，毫秒为单位
    */
-  async drag(x1: number, y1: number, x2: number, y2: number, duration = 0.7) {
+  async drag(x1: number, y1: number, x2: number, y2: number, duration = 700) {
     try {
       await this.chainOperation(drag([x1, y1], [x2, y2], duration));
     } catch (error) {
@@ -111,13 +111,13 @@ class BaseApp {
    * 长按
    * @param x x坐标
    * @param y y坐标
-   * @param ms 毫秒为单位
+   * @param duration 毫秒为单位
    */
-  async tapHold(x: number, y: number, ms = 800) {
+  async tapHold(x: number, y: number, duration = 800) {
     x = Math.round(x * 100) / 100;
     y = Math.round(y * 100) / 100;
     try {
-      await this.chainOperation(longPress(x, y, ms));
+      await this.chainOperation(longPress(x, y, duration));
     } catch (error) {
       throw new Error('啊哦，断掉了');
     }
