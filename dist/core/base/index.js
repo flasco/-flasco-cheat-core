@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const logger_1 = tslib_1.__importDefault(require("@flasco/logger"));
+const chainOperation_1 = require("../../utils/chainOperation");
 const utils_1 = require("../../utils");
 const flag_pool_1 = tslib_1.__importDefault(require("../flag-pool"));
 const base_judge_1 = tslib_1.__importDefault(require("../base-judge"));
@@ -30,7 +31,15 @@ class BaseApp {
         x = Math.round(x * 100) / 100;
         y = Math.round(y * 100) / 100;
         try {
-            await this.session.tap(x, y);
+            await this.chainOperation([
+                {
+                    action: 'tap',
+                    options: {
+                        x,
+                        y,
+                    },
+                },
+            ]);
         }
         catch (error) {
             throw new Error('啊哦，断掉了');
@@ -46,17 +55,17 @@ class BaseApp {
     }
     async drag(x1, y1, x2, y2, duration = 0.7) {
         try {
-            await this.session.swipe(x1, y1, x2, y2, duration);
+            await this.chainOperation(chainOperation_1.drag([x1, y1], [x2, y2], duration));
         }
         catch (error) {
             throw new Error('啊哦，断掉了');
         }
     }
-    async tapHold(x, y, delay = 1.0) {
+    async tapHold(x, y, ms = 800) {
         x = Math.round(x * 100) / 100;
         y = Math.round(y * 100) / 100;
         try {
-            await this.session.tapHold(x, y, delay);
+            await this.chainOperation(chainOperation_1.longPress(x, y, ms));
         }
         catch (error) {
             throw new Error('啊哦，断掉了');
