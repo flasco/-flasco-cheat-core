@@ -5,6 +5,11 @@ class FlagPool {
     constructor() {
         this.appMap = new Map();
     }
+    /**
+     * 获取处理成能被 opencv 使用的图片
+     * @param flagPath 文件地址
+     * @param needStore 是否要持久化
+     */
     getFlag(flagPath, needStore = true) {
         if (this.appMap.get(flagPath) == null) {
             const img = opencv4nodejs_1.default.imread(flagPath);

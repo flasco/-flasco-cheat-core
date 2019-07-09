@@ -1,8 +1,9 @@
 import cv from 'opencv4nodejs';
 import Logger from '@flasco/logger';
 import { Client, Session } from '@flasco/wda-driver';
+import { IChainOperation } from '@flasco/wda-driver/src/interface/IChainItem';
 
-import { IChainOperation, drag, longPress } from '../../utils/chainOperation';
+import { drag, longPress } from '../../utils/chainOperation';
 import { binary2Mat, delay } from '../../utils';
 import flagPool from '../flag-pool';
 import Judge from '../base-judge';

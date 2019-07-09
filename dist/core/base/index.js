@@ -16,6 +16,14 @@ class BaseApp {
         this.scale = scale;
         this.init && this.init(props);
     }
+    /**
+     * 点击事件
+     * @param x x坐标
+     * @param y y坐标
+     * @param needRandom 是否需要生成随机量
+     * @param randX x坐标随机的量, 不填的话默认是5
+     * @param randY y坐标随机的量, 不填的话跟randX一个值
+     */
     async tap(x, y, needRandom = false, randX, randY) {
         if (randX == null) {
             randX = 5;
@@ -30,6 +38,7 @@ class BaseApp {
         }
         x = Math.round(x * 100) / 100;
         y = Math.round(y * 100) / 100;
+        // this.log(`tap [${x}, ${y}]`);
         try {
             await this.chainOperation([
                 {
@@ -45,6 +54,10 @@ class BaseApp {
             throw new Error('啊哦，断掉了');
         }
     }
+    /**
+     * 执行动作链
+     * @param actions 动作链
+     */
     async chainOperation(actions) {
         try {
             await this.session.chainOperation(actions);
@@ -53,6 +66,14 @@ class BaseApp {
             throw new Error('啊哦，断掉了');
         }
     }
+    /**
+     * 拖拽
+     * @param x1 前坐标x
+     * @param y1 前坐标y
+     * @param x2 后坐标x
+     * @param y2 后坐标y
+     * @param duration 耗时，毫秒为单位
+     */
     async drag(x1, y1, x2, y2, duration = 700) {
         try {
             await this.chainOperation(chainOperation_1.drag([x1, y1], [x2, y2], duration));
@@ -61,6 +82,12 @@ class BaseApp {
             throw new Error('啊哦，断掉了');
         }
     }
+    /**
+     * 长按
+     * @param x x坐标
+     * @param y y坐标
+     * @param duration 毫秒为单位
+     */
     async tapHold(x, y, duration = 800) {
         x = Math.round(x * 100) / 100;
         y = Math.round(y * 100) / 100;
@@ -83,6 +110,12 @@ class BaseApp {
             throw new Error('啊哦，断掉了');
         }
     }
+    /**
+     * 在父图片中查找子图片，获取相似度与起始坐标
+     * @param img1 子图片
+     * @param img2 父图片
+     * @param  needLog 是否需要打印日志，调试用
+     */
     judgeMatching(img1, img2, needLog = false) {
         if (img1 == null || img2 == null)
             throw new Error('图像不能为空！');
@@ -92,14 +125,28 @@ class BaseApp {
             img2 = this.getPicture(img2);
         const result = new base_judge_1.default(img1, this.scale).matchTemplate(img2);
         needLog && logger_1.default.info(`maxSimple - ${result.simple.toFixed(2)}`);
+        // 之所以返回除以3，是因为屏幕缩放倍数的原因
         return result;
     }
+    /**
+     * 获取pic Mat
+     * @param filePath 图片文件路径
+     * @param needStore 是否需要存储，默认为 true
+     */
     getPicture(filePath, needStore = true) {
         return flag_pool_1.default.getFlag(filePath, needStore);
     }
+    /**
+     * 获取judge
+     * @param img 图片
+     */
     judge(img) {
         return new base_judge_1.default(img, this.scale);
     }
+    /**
+     * 等待
+     * @param ms 毫秒
+     */
     delay(ms) {
         return utils_1.delay(ms);
     }

@@ -155,8 +155,8 @@
     tslib "^1.10.0"
 
 "@flasco/wda-driver@git+https://github.com/flasco/wda-driver.git":
-  version "0.3.0"
-  resolved "git+https://github.com/flasco/wda-driver.git#2e124ba43c4e3d104627a9a6094532aa2f87e0dc"
+  version "0.3.1"
+  resolved "git+https://github.com/flasco/wda-driver.git#3d0e8e05ac331959a41a420559fccce8be020591"
   dependencies:
     axios "^0.19.0"
     tslib "^1.10.0"

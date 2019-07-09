@@ -1,5 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * 长按
+ * @param x x坐标
+ * @param y y坐标
+ * @param druation 持续时间
+ * @param rand 随机值
+ */
 function longPress(x, y, duration, rand = 0) {
     x = getRandom(x, rand);
     y = getRandom(y, rand);
@@ -21,6 +28,10 @@ function longPress(x, y, duration, rand = 0) {
     ];
 }
 exports.longPress = longPress;
+/**
+ * 等待
+ * @param ms 毫秒
+ */
 function wait(ms) {
     return {
         action: 'wait',
@@ -28,6 +39,12 @@ function wait(ms) {
     };
 }
 exports.wait = wait;
+/**
+ * 从起点拖拽至终点
+ * @param param0 起点
+ * @param param1 终点
+ * @param druation 拖拽的持续时间
+ */
 function drag([x1, y1], [x2, y2], duration = 800, rand = 0) {
     x1 = getRandom(x1, rand);
     x2 = getRandom(x2, rand);
@@ -59,6 +76,12 @@ function drag([x1, y1], [x2, y2], duration = 800, rand = 0) {
     ];
 }
 exports.drag = drag;
+/**
+ * 点击
+ * @param x x坐标
+ * @param y y坐标
+ * @param rand 随机值
+ */
 function tap(x, y, rand = 0) {
     x = getRandom(x, rand);
     y = getRandom(y, rand);
