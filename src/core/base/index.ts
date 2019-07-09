@@ -8,6 +8,12 @@ import { binary2Mat, delay, getRandom } from '../../utils';
 import flagPool from '../flag-pool';
 import Judge from '../base-judge';
 
+interface IRandom {
+  needRand?: boolean;
+  randX?: number;
+  randY?: number;
+}
+
 export interface IProps {
   client: Client;
   session: Session;
@@ -42,15 +48,21 @@ class BaseApp {
    * 点击事件
    * @param x x坐标
    * @param y y坐标
-   * @param randX x坐标随机的量, 默认0
-   * @param randY y坐标随机的量, 默认0
+   * @param {IRandom} 随机配置项
    */
   async tap(
     x: number,
     y: number,
-    randX = 0,
-    randY = 0
+    {
+      needRand = false,
+      randX = 3,
+      randY = 3
+    }: IRandom
   ) {
+    if (!needRand) {
+      randX = 0;
+      randY = 0;
+    }
     x = getRandom(x, randX);
     y = getRandom(y, randY);
     try {
@@ -93,15 +105,28 @@ class BaseApp {
       throw new Error('啊哦，断掉了');
     }
   }
+  
   /**
    * 长按
    * @param x x坐标
    * @param y y坐标
-   * @param duration 毫秒为单位
-   * @param randX x坐标随机的量, 默认0
-   * @param randY y坐标随机的量, 默认0
+   * @param duration 持续时间，毫秒
+   * @param {IRandom} 随机配置项
    */
-  async tapHold(x: number, y: number, duration = 800, randX = 0, randY = 0) {
+  async tapHold(
+    x: number,
+    y: number, 
+    duration = 800, 
+    {
+      needRand = false,
+      randX = 3,
+      randY = 3
+    }: IRandom
+  ) {
+    if (!needRand) {
+      randX = 0;
+      randY = 0;
+    }
     x = getRandom(x, randX);
     y = getRandom(y, randY);
     try {

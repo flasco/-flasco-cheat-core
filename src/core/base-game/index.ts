@@ -22,7 +22,7 @@ class GameCommon extends Base {
       point: { x, y },
     } = this.judgeMatching(flag, img);
     if (simple > threshold) {
-      await this.tap(x, y, 3, 3);
+      await this.tap(x, y, { needRand: true, randX: 3, randY: 3 });
       return true;
     }
     return false;

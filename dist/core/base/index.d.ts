@@ -2,6 +2,11 @@ import cv from 'opencv4nodejs';
 import { Client, Session } from '@flasco/wda-driver';
 import { IChainOperation } from '@flasco/wda-driver/src/interface/IChainItem';
 import Judge from '../base-judge';
+interface IRandom {
+    needRand?: boolean;
+    randX?: number;
+    randY?: number;
+}
 export interface IProps {
     client: Client;
     session: Session;
@@ -22,10 +27,9 @@ declare class BaseApp {
      * 点击事件
      * @param x x坐标
      * @param y y坐标
-     * @param randX x坐标随机的量, 默认0
-     * @param randY y坐标随机的量, 默认0
+     * @param {IRandom} 随机配置项
      */
-    tap(x: number, y: number, randX?: number, randY?: number): Promise<void>;
+    tap(x: number, y: number, { needRand, randX, randY }: IRandom): Promise<void>;
     /**
      * 执行动作链
      * @param actions 动作链
@@ -44,11 +48,10 @@ declare class BaseApp {
      * 长按
      * @param x x坐标
      * @param y y坐标
-     * @param duration 毫秒为单位
-     * @param randX x坐标随机的量, 默认0
-     * @param randY y坐标随机的量, 默认0
+     * @param duration 持续时间，毫秒
+     * @param {IRandom} 随机配置项
      */
-    tapHold(x: number, y: number, duration?: number, randX?: number, randY?: number): Promise<void>;
+    tapHold(x: number, y: number, duration: number | undefined, { needRand, randX, randY }: IRandom): Promise<void>;
     /**
      * 截屏
      */
