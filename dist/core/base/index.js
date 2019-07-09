@@ -29,7 +29,7 @@ class BaseApp {
             randX = 0;
             randY = 0;
         }
-        if (randXY != 0) {
+        if (randXY !== 0) {
             x = utils_1.getRandom(x, randXY);
             y = utils_1.getRandom(y, randXY);
         }
@@ -94,7 +94,7 @@ class BaseApp {
             randX = 0;
             randY = 0;
         }
-        if (randXY != 0) {
+        if (randXY !== 0) {
             x = utils_1.getRandom(x, randXY);
             y = utils_1.getRandom(y, randXY);
         }
