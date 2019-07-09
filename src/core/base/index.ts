@@ -12,6 +12,7 @@ interface IRandom {
   needRand?: boolean;
   randX?: number;
   randY?: number;
+  randXY?: number;
 }
 
 export interface IProps {
@@ -57,16 +58,24 @@ class BaseApp {
   ) {
     let {
       needRand = false,
+      randXY = 0,
       randX = 3,
       randY = 3
     } = randOpt;
 
     if (!needRand) {
+      randXY = 0;
       randX = 0;
       randY = 0;
     }
-    x = getRandom(x, randX);
-    y = getRandom(y, randY);
+
+    if (randXY !== 0) {
+      x = getRandom(x, randXY);
+      y = getRandom(y, randXY);
+    } else {
+      x = getRandom(x, randX);
+      y = getRandom(y, randY);
+    }
     try {
       await this.chainOperation([
         {
@@ -123,16 +132,25 @@ class BaseApp {
   ) {
     let {
       needRand = false,
+      randXY = 0,
       randX = 3,
       randY = 3
     } = randOpt;
 
     if (!needRand) {
+      randXY = 0;
       randX = 0;
       randY = 0;
     }
-    x = getRandom(x, randX);
-    y = getRandom(y, randY);
+
+    if (randXY !== 0) {
+      x = getRandom(x, randXY);
+      y = getRandom(y, randXY);
+    } else {
+      x = getRandom(x, randX);
+      y = getRandom(y, randY);
+    }
+
     try {
       await this.chainOperation(longPress(x, y, duration));
     } catch (error) {

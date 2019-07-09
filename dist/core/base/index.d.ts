@@ -6,6 +6,7 @@ interface IRandom {
     needRand?: boolean;
     randX?: number;
     randY?: number;
+    randXY?: number;
 }
 export interface IProps {
     client: Client;
