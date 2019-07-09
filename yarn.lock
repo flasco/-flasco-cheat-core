@@ -154,21 +154,6 @@
     date-fns "^1.30.1"
     tslib "^1.10.0"
 
-"@flasco/logger@git+https://github.com/flasco/logger.git#feature/support-ts":
-  version "0.0.3"
-  resolved "git+https://github.com/flasco/logger.git#26f37b8b996670a7579a62bb7c5a31e31bd5e7f9"
-  dependencies:
-    colors-cli "^1.0.23"
-    date-fns "^1.30.1"
-    tslib "^1.10.0"
-
-"@flasco/wda-driver@git+https://github.com/flasco/WDR.git#feature/support-ts":
-  version "0.2.1"
-  resolved "git+https://github.com/flasco/WDR.git#3784078e5b8a264d835e77808d8948018e58efc2"
-  dependencies:
-    axios "^0.19.0"
-    tslib "^1.10.0"
-
 "@flasco/wda-driver@git+https://github.com/flasco/wda-driver.git":
   version "0.3.0"
   resolved "git+https://github.com/flasco/wda-driver.git#2e124ba43c4e3d104627a9a6094532aa2f87e0dc"
