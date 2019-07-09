@@ -20,25 +20,12 @@ class BaseApp {
      * 点击事件
      * @param x x坐标
      * @param y y坐标
-     * @param needRandom 是否需要生成随机量
-     * @param randX x坐标随机的量, 不填的话默认是5
-     * @param randY y坐标随机的量, 不填的话跟randX一个值
+     * @param randX x坐标随机的量, 默认0
+     * @param randY y坐标随机的量, 默认0
      */
-    async tap(x, y, needRandom = false, randX, randY) {
-        if (randX == null) {
-            randX = 5;
-            randY = 5;
-        }
-        if (randY == null) {
-            randY = randX;
-        }
-        if (needRandom) {
-            x += Math.random() * randX;
-            y += Math.random() * randY;
-        }
-        x = Math.round(x * 100) / 100;
-        y = Math.round(y * 100) / 100;
-        // this.log(`tap [${x}, ${y}]`);
+    async tap(x, y, randX = 0, randY = 0) {
+        x = utils_1.getRandom(x, randX);
+        y = utils_1.getRandom(y, randY);
         try {
             await this.chainOperation([
                 {
@@ -87,10 +74,12 @@ class BaseApp {
      * @param x x坐标
      * @param y y坐标
      * @param duration 毫秒为单位
+     * @param randX x坐标随机的量, 默认0
+     * @param randY y坐标随机的量, 默认0
      */
-    async tapHold(x, y, duration = 800) {
-        x = Math.round(x * 100) / 100;
-        y = Math.round(y * 100) / 100;
+    async tapHold(x, y, duration = 800, randX = 0, randY = 0) {
+        x = utils_1.getRandom(x, randX);
+        y = utils_1.getRandom(y, randY);
         try {
             await this.chainOperation(chainOperation_1.longPress(x, y, duration));
         }

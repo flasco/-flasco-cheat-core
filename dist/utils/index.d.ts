@@ -15,3 +15,9 @@ export declare function binary2Mat(buffer: Buffer): cv.Mat;
  * @param ms 毫秒
  */
 export declare function delay(ms: number): Promise<void>;
+/**
+ * return = num + rand(x)
+ * @param num 要 random 的数
+ * @param rand random 的倍数
+ */
+export declare function getRandom(num: number, rand?: number): number;

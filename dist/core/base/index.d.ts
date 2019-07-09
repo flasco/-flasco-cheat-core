@@ -22,11 +22,10 @@ declare class BaseApp {
      * 点击事件
      * @param x x坐标
      * @param y y坐标
-     * @param needRandom 是否需要生成随机量
-     * @param randX x坐标随机的量, 不填的话默认是5
-     * @param randY y坐标随机的量, 不填的话跟randX一个值
+     * @param randX x坐标随机的量, 默认0
+     * @param randY y坐标随机的量, 默认0
      */
-    tap(x: number, y: number, needRandom?: boolean, randX?: number, randY?: number): Promise<void>;
+    tap(x: number, y: number, randX?: number, randY?: number): Promise<void>;
     /**
      * 执行动作链
      * @param actions 动作链
@@ -46,8 +45,10 @@ declare class BaseApp {
      * @param x x坐标
      * @param y y坐标
      * @param duration 毫秒为单位
+     * @param randX x坐标随机的量, 默认0
+     * @param randY y坐标随机的量, 默认0
      */
-    tapHold(x: number, y: number, duration?: number): Promise<void>;
+    tapHold(x: number, y: number, duration?: number, randX?: number, randY?: number): Promise<void>;
     /**
      * 截屏
      */
