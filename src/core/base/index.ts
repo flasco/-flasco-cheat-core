@@ -4,7 +4,7 @@ import { Client, Session } from '@flasco/wda-driver';
 import { IChainOperation } from '@flasco/wda-driver/src/interface/IChainItem';
 
 import { drag, longPress } from '../../utils/chainOperation';
-import { binary2Mat, delay } from '../../utils';
+import { binary2Mat, delay, getRandom } from '../../utils';
 import flagPool from '../flag-pool';
 import Judge from '../base-judge';
 
@@ -42,32 +42,17 @@ class BaseApp {
    * 点击事件
    * @param x x坐标
    * @param y y坐标
-   * @param needRandom 是否需要生成随机量
-   * @param randX x坐标随机的量, 不填的话默认是5
-   * @param randY y坐标随机的量, 不填的话跟randX一个值
+   * @param randX x坐标随机的量, 默认0
+   * @param randY y坐标随机的量, 默认0
    */
   async tap(
     x: number,
     y: number,
-    needRandom = false,
-    randX?: number,
-    randY?: number
+    randX = 0,
+    randY = 0
   ) {
-    if (randX == null) {
-      randX = 5;
-      randY = 5;
-    }
-    if (randY == null) {
-      randY = randX;
-    }
-    if (needRandom) {
-      x += Math.random() * randX;
-      y += Math.random() * randY;
-    }
-    x = Math.round(x * 100) / 100;
-    y = Math.round(y * 100) / 100;
-
-    // this.log(`tap [${x}, ${y}]`);
+    x = getRandom(x, randX);
+    y = getRandom(y, randY);
     try {
       await this.chainOperation([
         {
@@ -113,10 +98,12 @@ class BaseApp {
    * @param x x坐标
    * @param y y坐标
    * @param duration 毫秒为单位
+   * @param randX x坐标随机的量, 默认0
+   * @param randY y坐标随机的量, 默认0
    */
-  async tapHold(x: number, y: number, duration = 800) {
-    x = Math.round(x * 100) / 100;
-    y = Math.round(y * 100) / 100;
+  async tapHold(x: number, y: number, duration = 800, randX = 0, randY = 0) {
+    x = getRandom(x, randX);
+    y = getRandom(y, randY);
     try {
       await this.chainOperation(longPress(x, y, duration));
     } catch (error) {
