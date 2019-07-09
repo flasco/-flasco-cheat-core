@@ -29,7 +29,7 @@ declare class BaseApp {
      * @param y y坐标
      * @param {IRandom} 随机配置项
      */
-    tap(x: number, y: number, { needRand, randX, randY }: IRandom): Promise<void>;
+    tap(x: number, y: number, randOpt?: IRandom): Promise<void>;
     /**
      * 执行动作链
      * @param actions 动作链
@@ -51,7 +51,7 @@ declare class BaseApp {
      * @param duration 持续时间，毫秒
      * @param {IRandom} 随机配置项
      */
-    tapHold(x: number, y: number, duration: number | undefined, { needRand, randX, randY }: IRandom): Promise<void>;
+    tapHold(x: number, y: number, duration?: number, randOpt?: IRandom): Promise<void>;
     /**
      * 截屏
      */

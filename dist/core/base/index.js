@@ -22,7 +22,8 @@ class BaseApp {
      * @param y y坐标
      * @param {IRandom} 随机配置项
      */
-    async tap(x, y, { needRand = false, randX = 3, randY = 3 }) {
+    async tap(x, y, randOpt = {}) {
+        let { needRand = false, randX = 3, randY = 3 } = randOpt;
         if (!needRand) {
             randX = 0;
             randY = 0;
@@ -79,7 +80,8 @@ class BaseApp {
      * @param duration 持续时间，毫秒
      * @param {IRandom} 随机配置项
      */
-    async tapHold(x, y, duration = 800, { needRand = false, randX = 3, randY = 3 }) {
+    async tapHold(x, y, duration = 800, randOpt = {}) {
+        let { needRand = false, randX = 3, randY = 3 } = randOpt;
         if (!needRand) {
             randX = 0;
             randY = 0;

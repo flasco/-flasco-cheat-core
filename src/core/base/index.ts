@@ -53,12 +53,14 @@ class BaseApp {
   async tap(
     x: number,
     y: number,
-    {
+    randOpt: IRandom = {}
+  ) {
+    let {
       needRand = false,
       randX = 3,
       randY = 3
-    }: IRandom
-  ) {
+    } = randOpt;
+
     if (!needRand) {
       randX = 0;
       randY = 0;
@@ -117,12 +119,14 @@ class BaseApp {
     x: number,
     y: number, 
     duration = 800, 
-    {
+    randOpt: IRandom = {}
+  ) {
+    let {
       needRand = false,
       randX = 3,
       randY = 3
-    }: IRandom
-  ) {
+    } = randOpt;
+
     if (!needRand) {
       randX = 0;
       randY = 0;
