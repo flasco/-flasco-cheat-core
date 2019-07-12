@@ -36,5 +36,5 @@ export function delay(ms: number): Promise<void> {
  * @param rand random 的倍数
  */
 export function getRandom(num: number, rand: number = 3) {
-  return Math.round((num + (Math.random() * rand | 0)) * 100) / 100;
+  return Math.round((num + Math.random() * rand) | 0);
 }
