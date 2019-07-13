@@ -38,7 +38,8 @@ exports.delay = delay;
  * @param rand random 的倍数
  */
 function getRandom(num, rand = 3) {
-    return Math.round((num + (Math.random() * rand | 0)) * 100) / 100;
+    const randx = (Math.random() * rand) | 0;
+    return Math.round((num + randx) * 100) / 100;
 }
 exports.getRandom = getRandom;
 //# sourceMappingURL=index.js.map
