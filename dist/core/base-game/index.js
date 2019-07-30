@@ -95,18 +95,18 @@ class GameCommon extends base_1.default {
     }
     /**
      * 在父图片中查找子图片，获取相似度
-     * @param img 子图片
-     * @param containImg 父图片
+     * @param sonImg 子图片
+     * @param fatherImg 父图片
      * @param threshold 阈值 默认0.75
      */
-    isSimple(img, containImg, threshold = 0.75) {
-        if (img == null || containImg == null)
+    isSimple(sonImg, fatherImg, threshold = 0.75) {
+        if (sonImg == null || fatherImg == null)
             throw new Error('缺失参数...');
-        if (typeof img === 'string')
-            img = this.getPicture(img);
-        if (typeof containImg === 'string')
-            containImg = this.getPicture(containImg);
-        const { simple } = this.judgeMatching(img, containImg);
+        if (typeof sonImg === 'string')
+            sonImg = this.getPicture(sonImg);
+        if (typeof fatherImg === 'string')
+            fatherImg = this.getPicture(fatherImg);
+        const { simple } = this.judgeMatching(sonImg, fatherImg);
         return simple > threshold;
     }
 }

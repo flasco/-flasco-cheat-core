@@ -42,10 +42,10 @@ declare class GameCommon extends Base {
     checkUntilNot(flag: IMGORstring, options?: IOptions): Promise<boolean>;
     /**
      * 在父图片中查找子图片，获取相似度
-     * @param img 子图片
-     * @param containImg 父图片
+     * @param sonImg 子图片
+     * @param fatherImg 父图片
      * @param threshold 阈值 默认0.75
      */
-    isSimple(img: IMGORstring, containImg: IMGORstring, threshold?: number): boolean;
+    isSimple(sonImg: IMGORstring, fatherImg: IMGORstring, threshold?: number): boolean;
 }
 export = GameCommon;
