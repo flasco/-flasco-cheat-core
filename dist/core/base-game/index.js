@@ -10,11 +10,20 @@ class GameCommon extends base_1.default {
      * @param threshold 阈值，默认 0.75
      * @returns 否有需要点击的确定按钮
      */
-    async clickFlag(flag, threshold = 0.75) {
+    async clickFlag(flag, options) {
+        let { threshold = 0.75, baseX = 0, baseXY = 0, baseY = 0, randX = 0, randXY = 0, randY = 0, } = (options || {});
+        if (randXY !== 0) {
+            randX = randXY;
+            randY = randXY;
+        }
+        if (baseXY !== 0) {
+            baseX = baseXY;
+            baseY = baseXY;
+        }
         const img = await this.screenshot();
         const { simple, point: { x, y }, } = this.judgeMatching(flag, img);
         if (simple > threshold) {
-            await this.tap(x, y, { needRand: true, randX: 3, randY: 3 });
+            await this.tap(x + baseX, y + baseY, { needRand: true, randX, randY });
             return true;
         }
         return false;
@@ -26,12 +35,12 @@ class GameCommon extends base_1.default {
      * @param flag 要点击的图片
      * @param threshold 阈值，默认 0.75
      */
-    async tryClickREP(needCnt = 1, maxFailedCnt = 3, flag, threshold = 0.75) {
+    async tryClickREP(needCnt = 1, maxFailedCnt = 3, flag, options) {
         let cnt = 0;
         let failedCnt = 0;
         while (cnt < needCnt) {
             await utils_1.delay(1000 + 1000 * failedCnt);
-            const isClick = await this.clickFlag(flag, threshold);
+            const isClick = await this.clickFlag(flag, options);
             if (isClick) {
                 cnt++;
                 failedCnt = 0;

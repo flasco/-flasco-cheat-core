@@ -3,6 +3,15 @@ interface IOptions {
     triedCnt?: number;
     threshold?: number;
 }
+interface IREPOtion {
+    threshold?: number;
+    baseX?: number;
+    baseY?: number;
+    baseXY?: number;
+    randX?: number;
+    randY?: number;
+    randXY?: number;
+}
 declare class GameCommon extends Base {
     /**
      * 检测是否有需要点击的确定按钮，是则点击并返回true，否则返回false
@@ -10,7 +19,7 @@ declare class GameCommon extends Base {
      * @param threshold 阈值，默认 0.75
      * @returns 否有需要点击的确定按钮
      */
-    clickFlag(flag: IMGORstring, threshold?: number): Promise<boolean>;
+    clickFlag(flag: IMGORstring, options?: IREPOtion): Promise<boolean>;
     /**
      * 重复点击，最大失败次数
      * @param needCnt 点击次数
@@ -18,7 +27,7 @@ declare class GameCommon extends Base {
      * @param flag 要点击的图片
      * @param threshold 阈值，默认 0.75
      */
-    tryClickREP(needCnt: number | undefined, maxFailedCnt: number | undefined, flag: IMGORstring, threshold?: number): Promise<boolean>;
+    tryClickREP(needCnt: number | undefined, maxFailedCnt: number | undefined, flag: IMGORstring, options?: IREPOtion): Promise<boolean>;
     /**
      * 一直等待直到出现符合条件的图片，无返回值时意味着失败了
      * @param flag 标志图片
