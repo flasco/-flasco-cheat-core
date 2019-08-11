@@ -23,12 +23,7 @@ class BaseApp {
      * @param {IRandom} 随机配置项
      */
     async tap(x, y, randOpt = {}) {
-        let { needRand = false, randXY = 0, randX = 3, randY = 3 } = randOpt;
-        if (!needRand) {
-            randXY = 0;
-            randX = 0;
-            randY = 0;
-        }
+        const { randXY = 0, randX = 0, randY = 0 } = randOpt;
         if (randXY !== 0) {
             x = utils_1.getRandom(x, randXY);
             y = utils_1.getRandom(y, randXY);
@@ -88,12 +83,7 @@ class BaseApp {
      * @param {IRandom} 随机配置项
      */
     async tapHold(x, y, duration = 800, randOpt = {}) {
-        let { needRand = false, randXY = 0, randX = 3, randY = 3 } = randOpt;
-        if (!needRand) {
-            randXY = 0;
-            randX = 0;
-            randY = 0;
-        }
+        const { randXY = 0, randX = 0, randY = 0 } = randOpt;
         if (randXY !== 0) {
             x = utils_1.getRandom(x, randXY);
             y = utils_1.getRandom(y, randXY);

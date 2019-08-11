@@ -23,7 +23,7 @@ class GameCommon extends base_1.default {
         const img = await this.screenshot();
         const { simple, point: { x, y }, } = this.judgeMatching(flag, img);
         if (simple > threshold) {
-            await this.tap(x + baseX, y + baseY, { needRand: true, randX, randY });
+            await this.tap(x + baseX, y + baseY, { randX, randY });
             return true;
         }
         return false;

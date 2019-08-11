@@ -3,7 +3,6 @@ import { Client, Session } from '@flasco/wda-driver';
 import { IChainOperation } from '@flasco/wda-driver/src/interface/IChainItem';
 import Judge from '../base-judge';
 interface IRandom {
-    needRand?: boolean;
     randX?: number;
     randY?: number;
     randXY?: number;
