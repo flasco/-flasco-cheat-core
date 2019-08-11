@@ -9,7 +9,6 @@ import flagPool from '../flag-pool';
 import Judge from '../base-judge';
 
 interface IRandom {
-  needRand?: boolean;
   randX?: number;
   randY?: number;
   randXY?: number;
@@ -51,23 +50,8 @@ class BaseApp {
    * @param y y坐标
    * @param {IRandom} 随机配置项
    */
-  async tap(
-    x: number,
-    y: number,
-    randOpt: IRandom = {}
-  ) {
-    let {
-      needRand = false,
-      randXY = 0,
-      randX = 3,
-      randY = 3
-    } = randOpt;
-
-    if (!needRand) {
-      randXY = 0;
-      randX = 0;
-      randY = 0;
-    }
+  async tap(x: number, y: number, randOpt: IRandom = {}) {
+    const { randXY = 0, randX = 0, randY = 0 } = randOpt;
 
     if (randXY !== 0) {
       x = getRandom(x, randXY);
@@ -76,6 +60,7 @@ class BaseApp {
       x = getRandom(x, randX);
       y = getRandom(y, randY);
     }
+
     try {
       await this.chainOperation([
         {
@@ -116,7 +101,7 @@ class BaseApp {
       throw new Error('啊哦，断掉了');
     }
   }
-  
+
   /**
    * 长按
    * @param x x坐标
@@ -124,24 +109,8 @@ class BaseApp {
    * @param duration 持续时间，毫秒
    * @param {IRandom} 随机配置项
    */
-  async tapHold(
-    x: number,
-    y: number, 
-    duration = 800, 
-    randOpt: IRandom = {}
-  ) {
-    let {
-      needRand = false,
-      randXY = 0,
-      randX = 3,
-      randY = 3
-    } = randOpt;
-
-    if (!needRand) {
-      randXY = 0;
-      randX = 0;
-      randY = 0;
-    }
+  async tapHold(x: number, y: number, duration = 800, randOpt: IRandom = {}) {
+    const { randXY = 0, randX = 0, randY = 0 } = randOpt;
 
     if (randXY !== 0) {
       x = getRandom(x, randXY);
