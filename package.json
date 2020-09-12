@@ -5,17 +5,18 @@
   "author": "flasco",
   "license": "BSD 3-Clause",
   "private": true,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "start": "node ./index.js",
-    "ts:build": "tsc",
-    "wda": "sh script/test.sh",
-    "wda-init": "cd WebDriverAgent && ./Scripts/bootstrap.sh",
-    "wda-clone": "git clone --depth=1 https://github.com/flasco/WebDriverAgent",
-    "wda-update": "cd WebDriverAgent && git pull",
-    "proxy": "iproxy 8100 8100",
-    "screenshot": "node __test__/screenshot.test.js",
-    "test": "jest --no-cache --forceExit --runInBand --detectOpenHandles"
+    "build": "rm -rf dist && tsc --project tsconfig.prod.json",
+    "test": "jest --no-cache --forceExit --runInBand --detectOpenHandles",
+    "prepublishOnly": "yarn build"
   },
+  "files": [
+    "dist"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -34,13 +35,11 @@
     ]
   },
   "dependencies": {
-    "@flasco/logger": "git+https://github.com/flasco/logger.git",
-    "colors-cli": "^1.0.21",
-    "date-fns": "^1.30.1",
+    "@flasco/logger": "^0.0.3",
     "tslib": "^1.10.0"
   },
   "devDependencies": {
-    "@flasco/wda-driver": "git+https://github.com/flasco/wda-driver.git",
+    "@flasco/wda-driver": "^0.4.3",
     "@types/node": "^12.0.10",
     "@typescript-eslint/eslint-plugin": "^1.11.0",
     "@typescript-eslint/parser": "^1.11.0",

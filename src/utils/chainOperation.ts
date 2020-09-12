@@ -1,4 +1,4 @@
-import { ILongPress, IMoveTo, IPress, IRelease, ITap, IWait } from '@flasco/wda-driver/src/interface/IChainItem';
+import { ILongPress, IMoveTo, IPress, IRelease, ITap, IWait } from '@flasco/wda-driver';
 
 /**
  * 长按
