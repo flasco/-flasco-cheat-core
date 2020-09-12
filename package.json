@@ -4,7 +4,6 @@
   "main": "./dist/index.js",
   "author": "flasco",
   "license": "BSD 3-Clause",
-  "private": true,
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
