@@ -23,6 +23,8 @@ export interface IProps {
 
 export type IMGORstring = cv.Mat | string;
 
+type TOptions = { needLog?: boolean; region?: cv.Rect };
+
 class BaseApp {
   client: Client;
   session: Session;
@@ -147,16 +149,21 @@ class BaseApp {
    * @param img2 父图片
    * @param  needLog 是否需要打印日志，调试用
    */
-  judgeMatching(
-    img1: IMGORstring,
-    img2: IMGORstring,
-    needLog: boolean = false
-  ) {
+  judgeMatching(img1: IMGORstring, img2: IMGORstring, options?: TOptions) {
+    const { needLog = false, region } = options ?? {};
     if (img1 == null || img2 == null) throw new Error('图像不能为空！');
     if (typeof img1 === 'string') img1 = this.getPicture(img1);
     if (typeof img2 === 'string') img2 = this.getPicture(img2);
 
+    if (region != null) img1 = img1.getRegion(region);
     const result = new Judge(img1, this.scale).matchTemplate(img2);
+    const { point } = result;
+    if (region != null) {
+      result.point = {
+        x: point.x + region.x,
+        y: point.y + region.y,
+      };
+    }
 
     needLog && Logger.info(`maxSimple - ${result.simple.toFixed(2)}`);
     // 之所以返回除以3，是因为屏幕缩放倍数的原因

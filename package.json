@@ -1,9 +1,8 @@
 {
   "name": "@flasco/cheat-core",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "main": "./dist/index.js",
   "author": "flasco",
-  "license": "BSD 3-Clause",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
@@ -40,9 +39,9 @@
   "devDependencies": {
     "@flasco/wda-driver": "^0.4.3",
     "@types/node": "^12.0.10",
-    "@typescript-eslint/eslint-plugin": "^1.11.0",
-    "@typescript-eslint/parser": "^1.11.0",
-    "eslint": "^6.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "@typescript-eslint/parser": "^4.1.0",
+    "eslint": "^7.9.0",
     "husky": "^2.7.0",
     "jest": "^24.8.0",
     "lint-staged": "^8.2.1",
