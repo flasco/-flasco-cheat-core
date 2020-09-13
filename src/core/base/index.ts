@@ -145,8 +145,8 @@ class BaseApp {
   }
   /**
    * 在父图片中查找子图片，获取相似度与起始坐标
-   * @param img1 子图片
-   * @param img2 父图片
+   * @param img1 父图片
+   * @param img2 子图片
    * @param  needLog 是否需要打印日志，调试用
    */
   judgeMatching(img1: IMGORstring, img2: IMGORstring, options?: TOptions) {
